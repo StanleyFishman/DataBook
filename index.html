@@ -118,6 +118,16 @@
         box-shadow: 0 6px 16px rgba(12, 26, 42, 0.12);
       }
 
+      .full-bleed-banner {
+        width: 100%;
+      }
+
+      .full-bleed-banner img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
       .hero {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -428,6 +438,9 @@
     </header>
 
     <main>
+      <section class="full-bleed-banner" aria-label="Intro banner">
+        <img src="assets/intro-banner.png" alt="" />
+      </section>
       <section class="container hero" id="services">
         <div class="hero-copy">
           <p class="eyebrow" data-i18n="hero.eyebrow">Премиальный консалтинг</p>
