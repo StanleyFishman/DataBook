@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DataBook Landing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-light: #f7f8fa;
+        --bg-muted: #f0f2f5;
+        --text-main: #0c1a2a;
+        --text-muted: #4f5f70;
+        --accent: #0f62fe;
+        --radius-lg: 32px;
+        --radius-md: 20px;
+        --radius-sm: 12px;
+        --shadow-soft: 0 24px 48px rgba(12, 26, 42, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        color: var(--text-main);
+        background-color: #ffffff;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(12, 26, 42, 0.05);
+      }
+
+      .container {
+        width: min(1200px, calc(100% - 48px));
+        margin: 0 auto;
+      }
+
+      .top-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 0;
+        gap: 24px;
+      }
+
+      .logo {
+        font-weight: 700;
+        font-size: 1.4rem;
+        letter-spacing: -0.02em;
+      }
+
+      nav {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        font-weight: 500;
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        transition: color 0.2s ease;
+      }
+
+      nav a:hover,
+      nav a:focus {
+        color: var(--text-main);
+      }
+
+      .language-toggle {
+        display: inline-flex;
+        align-items: center;
+        padding: 4px;
+        border-radius: 999px;
+        background: var(--bg-muted);
+        gap: 4px;
+      }
+
+      .language-toggle button {
+        border: none;
+        background: transparent;
+        padding: 6px 14px;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: background 0.2s ease, color 0.2s ease;
+      }
+
+      .language-toggle button.active {
+        background: #ffffff;
+        color: var(--text-main);
+        box-shadow: 0 6px 16px rgba(12, 26, 42, 0.12);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 56px;
+        padding: 80px 0 48px;
+      }
+
+      .hero-copy h1 {
+        font-size: clamp(2.4rem, 3vw + 1rem, 3.6rem);
+        line-height: 1.1;
+        margin: 0 0 20px;
+      }
+
+      .hero-copy p {
+        font-size: 1.1rem;
+        color: var(--text-muted);
+        margin: 0 0 32px;
+        max-width: 520px;
+      }
+
+      .hero-cta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .btn {
+        padding: 14px 28px;
+        border-radius: 999px;
+        border: none;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+
+      .btn-primary {
+        background: var(--accent);
+        color: #ffffff;
+        box-shadow: 0 20px 30px rgba(15, 98, 254, 0.22);
+      }
+
+      .btn-ghost {
+        background: transparent;
+        color: var(--text-main);
+      }
+
+      .hero-media {
+        position: relative;
+        min-height: 420px;
+      }
+
+      .hero-media::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: var(--radius-lg);
+        background: linear-gradient(135deg, #d8e8ff, #f9f0ff);
+        box-shadow: var(--shadow-soft);
+      }
+
+      .hero-media img {
+        position: absolute;
+        inset: 24px;
+        width: calc(100% - 48px);
+        height: calc(100% - 48px);
+        object-fit: cover;
+        border-radius: var(--radius-md);
+      }
+
+      .clients-strip {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 24px;
+        padding: 40px 0 80px;
+      }
+
+      .clients-strip .logo-tile {
+        padding: 20px;
+        border-radius: var(--radius-sm);
+        background: var(--bg-light);
+        text-align: center;
+        font-weight: 600;
+        color: var(--text-muted);
+      }
+
+      .eyebrow {
+        font-weight: 600;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 0.8rem;
+        margin-bottom: 16px;
+        display: inline-block;
+      }
+
+      .section {
+        padding: 72px 0;
+      }
+
+      .section-header {
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 40px;
+        flex-wrap: wrap;
+      }
+
+      .section-header h2 {
+        margin: 0;
+        font-size: clamp(2rem, 2.2vw + 1rem, 2.8rem);
+      }
+
+      .section-header p {
+        max-width: 480px;
+        color: var(--text-muted);
+        margin: 0;
+      }
+
+      .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 24px;
+      }
+
+      .metric-card {
+        padding: 28px;
+        border-radius: var(--radius-md);
+        background: var(--bg-light);
+      }
+
+      .metric-card strong {
+        font-size: 2.4rem;
+        display: block;
+        margin-bottom: 12px;
+      }
+
+      .metric-card p {
+        margin: 0;
+        color: var(--text-muted);
+      }
+
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 32px;
+      }
+
+      .step-card {
+        padding: 28px;
+        border-radius: var(--radius-md);
+        background: #ffffff;
+        box-shadow: var(--shadow-soft);
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .step-card span {
+        font-weight: 600;
+        color: var(--accent);
+      }
+
+      .step-card h3 {
+        margin: 0;
+        font-size: 1.4rem;
+      }
+
+      .step-card p {
+        margin: 0;
+        color: var(--text-muted);
+      }
+
+      .stories-grid {
+        display: grid;
+        gap: 24px;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+
+      .story-card {
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        background: #ffffff;
+        box-shadow: var(--shadow-soft);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .story-visual {
+        background: linear-gradient(135deg, rgba(15, 98, 254, 0.18), rgba(255, 171, 0, 0.18));
+        aspect-ratio: 16 / 9;
+      }
+
+      .story-content {
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .story-tag {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--accent);
+      }
+
+      .story-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+
+      .story-text {
+        color: var(--text-muted);
+        margin: 0;
+      }
+
+      .cta-section {
+        background: var(--bg-light);
+        border-radius: var(--radius-lg);
+        padding: 64px;
+        text-align: center;
+        display: grid;
+        gap: 24px;
+        justify-items: center;
+      }
+
+      .cta-section h2 {
+        margin: 0;
+        font-size: clamp(2rem, 2vw + 1rem, 2.6rem);
+      }
+
+      .cta-section p {
+        max-width: 560px;
+        margin: 0;
+        color: var(--text-muted);
+        font-size: 1.05rem;
+      }
+
+      footer {
+        padding: 40px 0 60px;
+        color: var(--text-muted);
+      }
+
+      footer .footer-inner {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 960px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-media {
+          order: -1;
+          min-height: 320px;
+        }
+
+        .section {
+          padding: 56px 0;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .container {
+          width: calc(100% - 32px);
+        }
+
+        .top-bar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        nav {
+          width: 100%;
+          justify-content: space-between;
+        }
+
+        .hero {
+          padding: 56px 0 32px;
+        }
+
+        .cta-section {
+          padding: 48px 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="top-bar">
+          <div class="logo" data-i18n="logo">DataBook</div>
+          <nav>
+            <a href="#services" data-i18n="nav.solutions">Решения</a>
+            <a href="#research" data-i18n="nav.research">Исследования</a>
+            <a href="#cases" data-i18n="nav.cases">Кейсы</a>
+            <a href="#team" data-i18n="nav.team">Команда</a>
+            <a href="#contact" data-i18n="nav.contact">Контакты</a>
+          </nav>
+          <div class="language-toggle" role="group" aria-label="Language switcher">
+            <button type="button" data-lang="ru" class="active">Ru</button>
+            <button type="button" data-lang="en">En</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="container hero" id="services">
+        <div class="hero-copy">
+          <p class="eyebrow" data-i18n="hero.eyebrow">Премиальный консалтинг</p>
+          <h1 data-i18n="hero.title">DataBook. Предоставление персонализированной помощи.</h1>
+          <p data-i18n="hero.subtitle">
+            Эксперты и аналитики DataBook помогут вам увидеть новые возможности,
+            встроить цифровые решения в процессы и масштабировать развитие
+            бизнеса.
+          </p>
+          <div class="hero-cta">
+            <button class="btn btn-primary" data-i18n="hero.ctaPrimary">Получить консультацию</button>
+            <button class="btn btn-ghost" data-i18n="hero.ctaSecondary">Посмотреть презентацию</button>
+          </div>
+        </div>
+        <div class="hero-media" aria-hidden="true">
+          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=934&q=80" alt="" />
+        </div>
+      </section>
+
+      <div class="container clients-strip" id="research">
+        <div class="logo-tile" data-i18n="clients.1">Банковский сектор</div>
+        <div class="logo-tile" data-i18n="clients.2">IT &amp; телеком</div>
+        <div class="logo-tile" data-i18n="clients.3">Производство</div>
+        <div class="logo-tile" data-i18n="clients.4">Ритейл и eCommerce</div>
+        <div class="logo-tile" data-i18n="clients.5">Госсектор</div>
+      </div>
+
+      <section class="section" id="cases">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow" data-i18n="metrics.eyebrow">Профессиональная помощь на каждом этапе.</p>
+              <h2 data-i18n="metrics.title">Профессиональная помощь на каждом этапе.</h2>
+            </div>
+            <p data-i18n="metrics.subtitle">
+              От первого знакомства с рынком до внедрения аналитических решений
+              и сопровождения ваших команд — мы рядом, чтобы ускорить прогресс.
+            </p>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <strong data-i18n="metrics.m1.value">250+</strong>
+              <p data-i18n="metrics.m1.text">Клиентов доверяют DataBook по всему миру.</p>
+            </div>
+            <div class="metric-card">
+              <strong data-i18n="metrics.m2.value">180</strong>
+              <p data-i18n="metrics.m2.text">Исследований рынка и аналитических проектов ежегодно.</p>
+            </div>
+            <div class="metric-card">
+              <strong data-i18n="metrics.m3.value">24/7</strong>
+              <p data-i18n="metrics.m3.text">Поддержка команд и экспертов в режиме реального времени.</p>
+            </div>
+            <div class="metric-card">
+              <strong data-i18n="metrics.m4.value">95%</strong>
+              <p data-i18n="metrics.m4.text">Клиентов повторно обращаются за консультациями.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="team" style="background:var(--bg-light);">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow" data-i18n="steps.eyebrow">Пошаговое сопровождение.</p>
+              <h2 data-i18n="steps.title">Профессиональная помощь на каждом этапе.</h2>
+            </div>
+            <p data-i18n="steps.subtitle">
+              Мы проектируем исследования, выстраиваем стратегии роста и обучаем
+              команды так, чтобы знания закреплялись и приносили результаты.
+            </p>
+          </div>
+          <div class="steps">
+            <article class="step-card">
+              <span data-i18n="steps.step1.badge">01</span>
+              <h3 data-i18n="steps.step1.title">Обзор рынка</h3>
+              <p data-i18n="steps.step1.text">Фокусируемся на конкурентной среде и ключевых трендах, чтобы вы приняли уверенное решение.</p>
+            </article>
+            <article class="step-card">
+              <span data-i18n="steps.step2.badge">02</span>
+              <h3 data-i18n="steps.step2.title">Стратегические исследования</h3>
+              <p data-i18n="steps.step2.text">Формируем гипотезы, проверяем модели и предлагаем решения, основанные на данных.</p>
+            </article>
+            <article class="step-card">
+              <span data-i18n="steps.step3.badge">03</span>
+              <h3 data-i18n="steps.step3.title">Внедрение решений</h3>
+              <p data-i18n="steps.step3.text">Организуем проектные команды, сопровождаем внедрение и обучаем персонал.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="stories">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow" data-i18n="stories.eyebrow">Реальные примеры.</p>
+              <h2 data-i18n="stories.title">Кейсы клиентов</h2>
+            </div>
+            <p data-i18n="stories.subtitle">
+              Мы работаем с компаниями из разных отраслей и делимся историями
+              роста, трансформации и обучения команд.
+            </p>
+          </div>
+          <div class="stories-grid">
+            <article class="story-card">
+              <div class="story-visual"></div>
+              <div class="story-content">
+                <span class="story-tag" data-i18n="stories.story1.tag">Аналитика</span>
+                <div class="story-title" data-i18n="stories.story1.title">Реалистичное прогнозирование спроса</div>
+                <p class="story-text" data-i18n="stories.story1.text">Команда DataBook помогла ритейлеру внедрить модели прогнозирования и снизить издержки на 18%.</p>
+              </div>
+            </article>
+            <article class="story-card">
+              <div class="story-visual"></div>
+              <div class="story-content">
+                <span class="story-tag" data-i18n="stories.story2.tag">Консалтинг</span>
+                <div class="story-title" data-i18n="stories.story2.title">Мы знаем свою дело. И сделаем.</div>
+                <p class="story-text" data-i18n="stories.story2.text">Эксперты DataBook трансформировали процессы и повысили производительность отдела продаж.</p>
+              </div>
+            </article>
+            <article class="story-card">
+              <div class="story-visual"></div>
+              <div class="story-content">
+                <span class="story-tag" data-i18n="stories.story3.tag">Обучение</span>
+                <div class="story-title" data-i18n="stories.story3.title">Семинары. Обучающие программы.</div>
+                <p class="story-text" data-i18n="stories.story3.text">Обучающие треки помогли менеджерам внедрить культуру работы с данными.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="container">
+          <div class="cta-section">
+            <h2 data-i18n="cta.title">Сделайте следующий шаг.</h2>
+            <p data-i18n="cta.text">Обратитесь к эксперту DataBook — мы подготовим персонализированное решение для вашего бизнеса.</p>
+            <button class="btn btn-primary" data-i18n="cta.cta">Связаться с экспертом</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <strong data-i18n="footer.brand">DataBook</strong>
+        <span data-i18n="footer.copyright">© 2024 DataBook. Все права защищены.</span>
+      </div>
+    </footer>
+
+    <script>
+      const translations = {
+        ru: {
+          logo: "DataBook",
+          "nav.solutions": "Решения",
+          "nav.research": "Исследования",
+          "nav.cases": "Кейсы",
+          "nav.team": "Команда",
+          "nav.contact": "Контакты",
+          "hero.eyebrow": "Премиальный консалтинг",
+          "hero.title": "DataBook. Предоставление персонализированной помощи.",
+          "hero.subtitle":
+            "Эксперты и аналитики DataBook помогут вам увидеть новые возможности, встроить цифровые решения в процессы и масштабировать развитие бизнеса.",
+          "hero.ctaPrimary": "Получить консультацию",
+          "hero.ctaSecondary": "Посмотреть презентацию",
+          "clients.1": "Банковский сектор",
+          "clients.2": "IT & телеком",
+          "clients.3": "Производство",
+          "clients.4": "Ритейл и eCommerce",
+          "clients.5": "Госсектор",
+          "metrics.eyebrow": "Профессиональная помощь на каждом этапе.",
+          "metrics.title": "Профессиональная помощь на каждом этапе.",
+          "metrics.subtitle":
+            "От первого знакомства с рынком до внедрения аналитических решений и сопровождения ваших команд — мы рядом, чтобы ускорить прогресс.",
+          "metrics.m1.value": "250+",
+          "metrics.m1.text": "Клиентов доверяют DataBook по всему миру.",
+          "metrics.m2.value": "180",
+          "metrics.m2.text": "Исследований рынка и аналитических проектов ежегодно.",
+          "metrics.m3.value": "24/7",
+          "metrics.m3.text": "Поддержка команд и экспертов в режиме реального времени.",
+          "metrics.m4.value": "95%",
+          "metrics.m4.text": "Клиентов повторно обращаются за консультациями.",
+          "steps.eyebrow": "Пошаговое сопровождение.",
+          "steps.title": "Профессиональная помощь на каждом этапе.",
+          "steps.subtitle":
+            "Мы проектируем исследования, выстраиваем стратегии роста и обучаем команды так, чтобы знания закреплялись и приносили результаты.",
+          "steps.step1.badge": "01",
+          "steps.step1.title": "Обзор рынка",
+          "steps.step1.text":
+            "Фокусируемся на конкурентной среде и ключевых трендах, чтобы вы приняли уверенное решение.",
+          "steps.step2.badge": "02",
+          "steps.step2.title": "Стратегические исследования",
+          "steps.step2.text":
+            "Формируем гипотезы, проверяем модели и предлагаем решения, основанные на данных.",
+          "steps.step3.badge": "03",
+          "steps.step3.title": "Внедрение решений",
+          "steps.step3.text":
+            "Организуем проектные команды, сопровождаем внедрение и обучаем персонал.",
+          "stories.eyebrow": "Реальные примеры.",
+          "stories.title": "Кейсы клиентов",
+          "stories.subtitle":
+            "Мы работаем с компаниями из разных отраслей и делимся историями роста, трансформации и обучения команд.",
+          "stories.story1.tag": "Аналитика",
+          "stories.story1.title": "Реалистичное прогнозирование спроса",
+          "stories.story1.text":
+            "Команда DataBook помогла ритейлеру внедрить модели прогнозирования и снизить издержки на 18%.",
+          "stories.story2.tag": "Консалтинг",
+          "stories.story2.title": "Мы знаем свое дело. И сделаем.",
+          "stories.story2.text":
+            "Эксперты DataBook трансформировали процессы и повысили производительность отдела продаж.",
+          "stories.story3.tag": "Обучение",
+          "stories.story3.title": "Семинары. Обучающие программы.",
+          "stories.story3.text":
+            "Обучающие треки помогли менеджерам внедрить культуру работы с данными.",
+          "cta.title": "Сделайте следующий шаг.",
+          "cta.text":
+            "Обратитесь к эксперту DataBook — мы подготовим персонализированное решение для вашего бизнеса.",
+          "cta.cta": "Связаться с экспертом",
+          "footer.brand": "DataBook",
+          "footer.copyright": "© 2024 DataBook. Все права защищены."
+        },
+        en: {
+          logo: "DataBook",
+          "nav.solutions": "Solutions",
+          "nav.research": "Research",
+          "nav.cases": "Case studies",
+          "nav.team": "Team",
+          "nav.contact": "Contact",
+          "hero.eyebrow": "Premium consulting",
+          "hero.title": "DataBook. Delivering personalised guidance.",
+          "hero.subtitle":
+            "DataBook experts and analysts help you uncover opportunities, embed digital solutions and scale business growth.",
+          "hero.ctaPrimary": "Book a consultation",
+          "hero.ctaSecondary": "View presentation",
+          "clients.1": "Banking",
+          "clients.2": "IT & Telecom",
+          "clients.3": "Manufacturing",
+          "clients.4": "Retail & eCommerce",
+          "clients.5": "Public sector",
+          "metrics.eyebrow": "Support at every stage.",
+          "metrics.title": "Professional support at every stage.",
+          "metrics.subtitle":
+            "From initial market discovery to analytics implementation and ongoing enablement — we accelerate your progress.",
+          "metrics.m1.value": "250+",
+          "metrics.m1.text": "Clients worldwide trust DataBook.",
+          "metrics.m2.value": "180",
+          "metrics.m2.text": "Market studies and analytics projects every year.",
+          "metrics.m3.value": "24/7",
+          "metrics.m3.text": "Real-time support from expert teams.",
+          "metrics.m4.value": "95%",
+          "metrics.m4.text": "Clients return for continued guidance.",
+          "steps.eyebrow": "Step-by-step guidance.",
+          "steps.title": "Professional support at every stage.",
+          "steps.subtitle":
+            "We design research, build growth strategies and train teams so knowledge sticks and delivers results.",
+          "steps.step1.badge": "01",
+          "steps.step1.title": "Market overview",
+          "steps.step1.text":
+            "We analyse the competitive landscape and key trends so you can decide with confidence.",
+          "steps.step2.badge": "02",
+          "steps.step2.title": "Strategic research",
+          "steps.step2.text":
+            "We frame hypotheses, validate models and recommend data-backed solutions.",
+          "steps.step3.badge": "03",
+          "steps.step3.title": "Implementation",
+          "steps.step3.text":
+            "We mobilise project teams, support roll-out and train your people.",
+          "stories.eyebrow": "Real-world impact.",
+          "stories.title": "Client stories",
+          "stories.subtitle":
+            "We partner with organisations across industries and share stories of growth, transformation and enablement.",
+          "stories.story1.tag": "Analytics",
+          "stories.story1.title": "Realistic demand forecasting",
+          "stories.story1.text":
+            "DataBook helped a retailer deploy forecasting models and reduce costs by 18%.",
+          "stories.story2.tag": "Consulting",
+          "stories.story2.title": "We know our craft.",
+          "stories.story2.text":
+            "Our consultants transformed processes and increased sales team productivity.",
+          "stories.story3.tag": "Training",
+          "stories.story3.title": "Workshops and learning programmes",
+          "stories.story3.text":
+            "Learning tracks helped managers adopt a data-first mindset.",
+          "cta.title": "Take the next step.",
+          "cta.text":
+            "Speak with a DataBook expert — we will tailor a solution for your business.",
+          "cta.cta": "Contact an expert",
+          "footer.brand": "DataBook",
+          "footer.copyright": "© 2024 DataBook. All rights reserved."
+        }
+      };
+
+      const toggleButtons = document.querySelectorAll(".language-toggle button");
+      const translatable = document.querySelectorAll("[data-i18n]");
+
+      function setLanguage(lang) {
+        const dict = translations[lang];
+        if (!dict) return;
+        document.documentElement.lang = lang;
+        translatable.forEach((node) => {
+          const key = node.dataset.i18n;
+          if (dict[key]) {
+            node.textContent = dict[key];
+          }
+        });
+        toggleButtons.forEach((btn) => {
+          btn.classList.toggle("active", btn.dataset.lang === lang);
+        });
+        localStorage.setItem("databook-lang", lang);
+      }
+
+      toggleButtons.forEach((btn) => {
+        btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
+      });
+
+      const savedLang = localStorage.getItem("databook-lang") || "ru";
+      setLanguage(savedLang);
+    </script>
+  </body>
+</html>
