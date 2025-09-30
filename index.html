@@ -318,6 +318,13 @@
       .story-visual {
         background: linear-gradient(135deg, rgba(15, 98, 254, 0.18), rgba(255, 171, 0, 0.18));
         aspect-ratio: 16 / 9;
+        overflow: hidden;
+      }
+
+      .story-visual img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
 
       .story-content {
@@ -456,19 +463,27 @@
           </div>
           <div class="stories-grid">
             <article class="story-card">
-              <div class="story-visual"></div>
+              <div class="story-visual">
+                <img src="assets/story-visual_1.png" alt="Графики с аналитикой данных" />
+              </div>
               <div class="story-content">
                 <span class="story-tag" data-i18n="stories.story1.tag">Аналитика</span>
                 <div class="story-title" data-i18n="stories.story1.title">Реалистичное прогнозирование спроса</div>
-                <p class="story-text" data-i18n="stories.story1.text">Команда DataBook помогла ритейлеру внедрить модели прогнозирования и снизить издержки на 18%.</p>
+                <p class="story-text" data-i18n="stories.story1.text">
+                  Команда DataBook помогла ритейлеру внедрить модели прогнозирования и снизить издержки на 18%.
+                </p>
               </div>
             </article>
             <article class="story-card">
-              <div class="story-visual"></div>
+              <div class="story-visual">
+                <img src="assets/story-visual_2.png" alt="Команда специалистов за работой" />
+              </div>
               <div class="story-content">
                 <span class="story-tag" data-i18n="stories.story2.tag">Консалтинг</span>
                 <div class="story-title" data-i18n="stories.story2.title">Мы знаем свою дело. И сделаем.</div>
-                <p class="story-text" data-i18n="stories.story2.text">Эксперты DataBook трансформировали процессы и повысили производительность отдела продаж.</p>
+                <p class="story-text" data-i18n="stories.story2.text">
+                  Эксперты DataBook трансформировали процессы и повысили производительность отдела продаж.
+                </p>
               </div>
             </article>
             <!-- <article class="story-card">
