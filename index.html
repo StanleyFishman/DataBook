@@ -475,8 +475,9 @@
 
       .reveal-up {
         opacity: 0;
-        transform: translateY(24px);
-        transition: opacity 500ms ease, transform 500ms ease;
+        transform: translateY(32px);
+        transition: opacity 700ms ease, transform 700ms ease;
+        transition-delay: var(--reveal-delay, 0ms);
         will-change: opacity, transform;
       }
 
@@ -485,20 +486,12 @@
         transform: translateY(0);
       }
 
-      /* Optional stagger example for feature grids */
-      .features .card {
-        transition-delay: 0ms;
-      }
-
-      .features .card:nth-child(2) {
-        transition-delay: 80ms;
-      }
-
-      .features .card:nth-child(3) {
-        transition-delay: 160ms;
-      }
-
-      /* Continue the pattern as needed */
+      /*
+        Дополнительно можно задать собственные задержки для сеток:
+        .features .card { --reveal-delay: 0ms; }
+        .features .card:nth-child(2) { --reveal-delay: 80ms; }
+        .features .card:nth-child(3) { --reveal-delay: 160ms; }
+      */
     </style>
   </head>
   <body>
@@ -943,7 +936,19 @@
               Array.from(document.querySelectorAll(selector))
             )
           )
-        );
+        ).sort((a, b) => {
+          if (a === b) {
+            return 0;
+          }
+          const position = a.compareDocumentPosition(b);
+          if (position & Node.DOCUMENT_POSITION_FOLLOWING) {
+            return -1;
+          }
+          if (position & Node.DOCUMENT_POSITION_PRECEDING) {
+            return 1;
+          }
+          return 0;
+        });
 
         if (!targets.length) {
           return;
@@ -953,6 +958,26 @@
           if (!el.classList.contains("reveal-up")) {
             el.classList.add("reveal-up");
           }
+        });
+
+        const groups = new Map();
+        targets.forEach((el) => {
+          const parent = el.parentElement;
+          if (!parent) {
+            return;
+          }
+          if (!groups.has(parent)) {
+            groups.set(parent, []);
+          }
+          groups.get(parent).push(el);
+        });
+
+        const STAGGER_STEP = 120;
+        groups.forEach((group) => {
+          group.forEach((el, index) => {
+            const delay = index * STAGGER_STEP;
+            el.style.setProperty("--reveal-delay", `${delay}ms`);
+          });
         });
 
         if (!("IntersectionObserver" in window)) {
