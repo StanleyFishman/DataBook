@@ -472,6 +472,33 @@
           padding: 48px 24px;
         }
       }
+
+      .reveal-up {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 500ms ease, transform 500ms ease;
+        will-change: opacity, transform;
+      }
+
+      .reveal-up.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Optional stagger example for feature grids */
+      .features .card {
+        transition-delay: 0ms;
+      }
+
+      .features .card:nth-child(2) {
+        transition-delay: 80ms;
+      }
+
+      .features .card:nth-child(3) {
+        transition-delay: 160ms;
+      }
+
+      /* Continue the pattern as needed */
     </style>
   </head>
   <body>
@@ -897,6 +924,69 @@
 
       const savedLang = localStorage.getItem("databook-lang") || "ru";
       setLanguage(savedLang);
+
+      const initRevealAnimations = () => {
+        const REVEAL_SELECTORS = [
+          ".hero-copy > *",
+          ".hero-media",
+          ".clients-strip .logo-tile",
+          ".metrics-grid .metric-card",
+          ".steps .step-card",
+          ".stories-grid .story-card",
+          ".wall-grid .wall-card",
+          ".cta-section",
+        ];
+
+        const targets = Array.from(
+          new Set(
+            REVEAL_SELECTORS.flatMap((selector) =>
+              Array.from(document.querySelectorAll(selector))
+            )
+          )
+        );
+
+        if (!targets.length) {
+          return;
+        }
+
+        targets.forEach((el) => {
+          if (!el.classList.contains("reveal-up")) {
+            el.classList.add("reveal-up");
+          }
+        });
+
+        if (!("IntersectionObserver" in window)) {
+          targets.forEach((el) => el.classList.add("is-visible"));
+          return;
+        }
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) {
+                return;
+              }
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            });
+          },
+          {
+            root: null,
+            threshold: 0.15,
+            rootMargin: "0px 0px -40px 0px",
+          }
+        );
+
+        targets.forEach((el) => observer.observe(el));
+      };
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initRevealAnimations, {
+          once: true,
+        });
+      } else {
+        initRevealAnimations();
+      }
     </script>
   </body>
 </html>
