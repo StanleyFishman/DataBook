@@ -306,7 +306,22 @@
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       }
 
+      .wall-grid {
+        display: grid;
+        gap: 24px;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+
       .story-card {
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        background: #ffffff;
+        box-shadow: var(--shadow-soft);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .wall-card {
         border-radius: var(--radius-md);
         overflow: hidden;
         background: #ffffff;
@@ -321,7 +336,19 @@
         overflow: hidden;
       }
 
+      .wall-visual {
+        background: linear-gradient(135deg, rgba(15, 98, 254, 0.18), rgba(255, 171, 0, 0.18));
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+      }
+
       .story-visual img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .wall-visual img {
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -334,7 +361,20 @@
         gap: 12px;
       }
 
+      .wall-content {
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
       .story-tag {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--accent);
+      }
+
+      .wall-tag {
         font-size: 0.85rem;
         font-weight: 600;
         color: var(--accent);
@@ -345,7 +385,17 @@
         font-weight: 600;
       }
 
+      .wall-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+
       .story-text {
+        color: var(--text-muted);
+        margin: 0;
+      }
+
+      .wall-text {
         color: var(--text-muted);
         margin: 0;
       }
@@ -592,7 +642,7 @@
         </div>
       </section> -->
 
-            <section class="section" id="stories">
+            <section class="section" id="wall">
         <div class="container">
           <div class="section-header">
             <!-- <div>
@@ -604,39 +654,39 @@
               роста, трансформации и обучения команд.
             </p> -->
           </div>
-          <div class="stories-grid">
-            <article class="story-card">
-              <div class="story-visual">
+          <div class="wall-grid">
+            <article class="wall-card">
+              <div class="wall-visual">
                 <img src="assets/story-visual_3.png" alt="Реальные люди легко и доступно" />
               </div>
-              <div class="story-content">
+              <div class="wall-content">
                 <!-- <span class="story-tag" data-i18n="stories.story1.tag">Аналитика</span> -->
-                <div class="story-title" data-i18n="stories.story1.title">Реальные люди легко и доступно</div>
-                <p class="story-text" data-i18n="stories.story1.text">
+                <div class="wall-title" data-i18n="stories.story3.title">Реальные люди легко и доступно</div>
+                <p class="wall-text" data-i18n="stories.story3.text">
                   Команда DataBook помогла ритейлеру внедрить модели прогнозирования и снизить издержки на 18%.
                 </p>
               </div>
             </article>
-            <article class="story-card">
-              <div class="story-visual">
+            <article class="wall-card">
+              <div class="wall-visual">
                 <img src="assets/story-visual_4.png" alt="Мы знаем свою дело. И ваше тоже" />
               </div>
-              <div class="story-content">
+              <div class="wall-content">
                 <!-- <span class="story-tag" data-i18n="stories.story2.tag">Консалтинг</span> -->
-                <div class="story-title" data-i18n="stories.story2.title">Мы знаем свою дело. И ваше тоже</div>
-                <p class="story-text" data-i18n="stories.story2.text">
+                <div class="wall-title" data-i18n="stories.story4.title">Мы знаем свою дело. И ваше тоже</div>
+                <p class="wall-text" data-i18n="stories.story4.text">
                   Эксперты DataBook трансформировали процессы и повысили производительность отдела продаж.
                 </p>
               </div>
             </article>
-            <article class="story-card">
-              <div class="story-visual">
+            <article class="wall-card">
+              <div class="wall-visual">
                 <img src="assets/story-visual_5.png" alt="Семинары. Обучающие программы" />
               </div>
-              <div class="story-content">
+              <div class="wall-content">
                 <!-- <span class="story-tag" data-i18n="stories.story2.tag">Консалтинг</span> -->
-                <div class="story-title" data-i18n="stories.story2.title">Семинары. Обучающие программы</div>
-                <p class="story-text" data-i18n="stories.story2.text">
+                <div class="wall-title" data-i18n="stories.story5.title">Семинары. Обучающие программы</div>
+                <p class="wall-text" data-i18n="stories.story5.text">
                   Эксперты DataBook трансформировали процессы и повысили производительность отдела продаж.
                 </p>
               </div>
@@ -728,6 +778,14 @@
           "stories.story3.title": "Семинары. Обучающие программы.",
           "stories.story3.text":
             "Обучающие треки помогли менеджерам внедрить культуру работы с данными.",
+          "stories.story4.tag": "Training",
+          "stories.story4.title": "We know our business. And yours too",
+          "stories.story4.text":
+            "Learning tracks helped managers adopt a data-first mindset.",
+          "stories.story5.tag": "Training",
+          "stories.story5.title": "We know our business. And yours too",
+          "stories.story5.text":
+            "Learning tracks helped managers adopt a data-first mindset.",
           "cta.title": "Сделайте следующий шаг.",
           "cta.text":
             "Обратитесь к эксперту DataBook — мы подготовим персонализированное решение для вашего бизнеса.",
@@ -796,6 +854,14 @@
           "stories.story3.tag": "Training",
           "stories.story3.title": "Workshops and learning programmes",
           "stories.story3.text":
+            "Learning tracks helped managers adopt a data-first mindset.",
+          "stories.story4.tag": "Training",
+          "stories.story4.title": "We know our business. And yours too",
+          "stories.story4.text":
+            "Learning tracks helped managers adopt a data-first mindset.",
+          "stories.story5.tag": "Training",
+          "stories.story5.title": "We know our business. And yours too",
+          "stories.story5.text":
             "Learning tracks helped managers adopt a data-first mindset.",
           "cta.title": "Take the next step.",
           "cta.text":
