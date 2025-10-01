@@ -206,6 +206,185 @@
         color: var(--text-muted);
       }
 
+      .reports-carousel {
+        position: relative;
+        width: 100vw;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        padding: clamp(48px, 8vw, 96px) 0;
+        background: linear-gradient(135deg, #101b2e 0%, #132543 45%, #0f62fe 100%);
+      }
+
+      .reports-carousel .carousel-inner {
+        width: min(1280px, calc(100% - 96px));
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        color: #ffffff;
+      }
+
+      .reports-carousel .carousel-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .reports-carousel .carousel-header h2 {
+        margin: 0;
+        color: inherit;
+      }
+
+      .reports-carousel .eyebrow {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .reports-carousel .carousel-description {
+        max-width: 520px;
+        margin: 0;
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 1.05rem;
+      }
+
+      .carousel-controls {
+        display: inline-flex;
+        gap: 12px;
+      }
+
+      .carousel-nav {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        background: rgba(15, 98, 254, 0.15);
+        color: #ffffff;
+        font-size: 1.2rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+      }
+
+      .carousel-nav:hover:not([disabled]),
+      .carousel-nav:focus-visible:not([disabled]) {
+        outline: none;
+        background: rgba(15, 98, 254, 0.3);
+        border-color: rgba(255, 255, 255, 0.7);
+        transform: translateY(-2px);
+      }
+
+      .carousel-nav[disabled] {
+        opacity: 0.35;
+        cursor: default;
+      }
+
+      .carousel-window {
+        position: relative;
+        overflow: hidden;
+        padding-bottom: 4px;
+      }
+
+      .carousel-track {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: minmax(260px, 340px);
+        gap: clamp(16px, 4vw, 32px);
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        padding-bottom: 12px;
+        margin: 0;
+        list-style: none;
+      }
+
+      .carousel-track::-webkit-scrollbar {
+        display: none;
+      }
+
+      .carousel-track {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      .carousel-slide {
+        scroll-snap-align: start;
+      }
+
+      .report-cover {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 16px;
+        padding: clamp(24px, 3vw, 32px);
+        min-height: 320px;
+        border-radius: var(--radius-lg);
+        background: linear-gradient(
+          135deg,
+          hsl(var(--cover-hue, 210), 75%, 48%),
+          hsl(calc(var(--cover-hue, 210) + 35), 85%, 56%)
+        );
+        color: #ffffff;
+        overflow: hidden;
+        isolation: isolate;
+      }
+
+      .report-cover::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.3), transparent 55%),
+          linear-gradient(140deg, rgba(255, 255, 255, 0.18) 0%, transparent 55%);
+        mix-blend-mode: screen;
+        pointer-events: none;
+        opacity: 0.65;
+      }
+
+      .report-tag {
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .report-cover h3 {
+        margin: 0;
+        font-size: clamp(1.25rem, 1vw + 1rem, 1.6rem);
+        line-height: 1.2;
+      }
+
+      .report-cover p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.85);
+      }
+
+      .report-link {
+        align-self: flex-start;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-radius: 999px;
+        padding: 10px 22px;
+        background: rgba(12, 26, 42, 0.25);
+        color: #ffffff;
+        font-weight: 600;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+        backdrop-filter: blur(4px);
+      }
+
+      .report-link:hover,
+      .report-link:focus-visible {
+        outline: none;
+        background: rgba(12, 26, 42, 0.4);
+        border-color: rgba(255, 255, 255, 0.8);
+        transform: translateY(-1px);
+      }
+
       .eyebrow {
         font-weight: 600;
         color: var(--accent);
@@ -440,6 +619,24 @@
         .section {
           padding: 56px 0;
         }
+
+        .reports-carousel .carousel-inner {
+          width: calc(100% - 48px);
+        }
+
+        .reports-carousel .carousel-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 12px;
+        }
+
+        .carousel-controls {
+          align-self: flex-end;
+        }
+
+        .carousel-track {
+          grid-auto-columns: minmax(240px, 280px);
+        }
       }
 
       @media (max-width: 640px) {
@@ -589,6 +786,88 @@
         <div class="logo-tile" data-i18n="clients.4">Ритейл и eCommerce</div>
         <div class="logo-tile" data-i18n="clients.5">Госсектор</div>
       </div>
+
+      <section class="reports-carousel" id="reports" aria-labelledby="reports-heading">
+        <div class="carousel-inner">
+          <div class="carousel-header">
+            <div>
+              <p class="eyebrow" data-i18n="reports.eyebrow">Свежие отчеты</p>
+              <h2 id="reports-heading" data-i18n="reports.title">Актуальные исследования DataBook</h2>
+            </div>
+            <div class="carousel-controls" aria-hidden="false">
+              <button class="carousel-nav prev" type="button" aria-label="Предыдущий отчет">&#8592;</button>
+              <button class="carousel-nav next" type="button" aria-label="Следующий отчет">&#8594;</button>
+            </div>
+          </div>
+          <p class="carousel-description" data-i18n="reports.description">
+            Выберите релевантные обзоры рынка и аналитические материалы — мы подготовили подборку по ключевым отраслям.
+          </p>
+          <div class="carousel-window">
+            <div class="carousel-track">
+              <article class="carousel-slide">
+                <div class="report-cover" style="--cover-hue: 210">
+                  <span class="report-tag" data-i18n="reports.slide1.tag">Финансы</span>
+                  <h3 data-i18n="reports.slide1.title">Обзор банковского сектора Q2</h3>
+                  <p data-i18n="reports.slide1.text">
+                    Ключевые метрики и прогноз развития цифровых сервисов до конца года.
+                  </p>
+                  <button class="report-link" type="button" data-i18n="reports.slideCta">Смотреть превью</button>
+                </div>
+              </article>
+              <article class="carousel-slide">
+                <div class="report-cover" style="--cover-hue: 170">
+                  <span class="report-tag" data-i18n="reports.slide2.tag">Телеком</span>
+                  <h3 data-i18n="reports.slide2.title">Рынок 5G-решений для бизнеса</h3>
+                  <p data-i18n="reports.slide2.text">
+                    Сценарии внедрения и оценка готовности инфраструктуры крупных городов.
+                  </p>
+                  <button class="report-link" type="button" data-i18n="reports.slideCta">Смотреть превью</button>
+                </div>
+              </article>
+              <article class="carousel-slide">
+                <div class="report-cover" style="--cover-hue: 25">
+                  <span class="report-tag" data-i18n="reports.slide3.tag">Ритейл</span>
+                  <h3 data-i18n="reports.slide3.title">Портрет цифрового покупателя 2024</h3>
+                  <p data-i18n="reports.slide3.text">
+                    Поведение клиентов, гибридные каналы продаж и ключевые показатели лояльности.
+                  </p>
+                  <button class="report-link" type="button" data-i18n="reports.slideCta">Смотреть превью</button>
+                </div>
+              </article>
+              <article class="carousel-slide">
+                <div class="report-cover" style="--cover-hue: 320">
+                  <span class="report-tag" data-i18n="reports.slide4.tag">Промышленность</span>
+                  <h3 data-i18n="reports.slide4.title">Автоматизация производственных цепочек</h3>
+                  <p data-i18n="reports.slide4.text">
+                    Кейсы внедрения IIoT и оценка влияния на операционную эффективность предприятий.
+                  </p>
+                  <button class="report-link" type="button" data-i18n="reports.slideCta">Смотреть превью</button>
+                </div>
+              </article>
+              <article class="carousel-slide">
+                <div class="report-cover" style="--cover-hue: 260">
+                  <span class="report-tag" data-i18n="reports.slide5.tag">Госсектор</span>
+                  <h3 data-i18n="reports.slide5.title">Цифровая трансформация услуг</h3>
+                  <p data-i18n="reports.slide5.text">
+                    Анализ пользовательских сценариев и практики внедрения суперприложений.
+                  </p>
+                  <button class="report-link" type="button" data-i18n="reports.slideCta">Смотреть превью</button>
+                </div>
+              </article>
+              <article class="carousel-slide">
+                <div class="report-cover" style="--cover-hue: 120">
+                  <span class="report-tag" data-i18n="reports.slide6.tag">Стартапы</span>
+                  <h3 data-i18n="reports.slide6.title">Инвестиции в AI-проекты</h3>
+                  <p data-i18n="reports.slide6.text">
+                    Динамика сделок, перспективные направления и карта венчурных фондов.
+                  </p>
+                  <button class="report-link" type="button" data-i18n="reports.slideCta">Смотреть превью</button>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section class="section" id="cases">
         <div class="container">
@@ -747,6 +1026,35 @@
           "clients.3": "Маркетинговые исследования",
           "clients.4": "Финансовое моделирование",
           "clients.5": "Организация финансирования",
+          "reports.eyebrow": "Свежие отчеты",
+          "reports.title": "Актуальные исследования DataBook",
+          "reports.description":
+            "Выберите релевантные обзоры рынка и аналитические материалы — мы подготовили подборку по ключевым отраслям.",
+          "reports.slideCta": "Смотреть превью",
+          "reports.slide1.tag": "Финансы",
+          "reports.slide1.title": "Обзор банковского сектора Q2",
+          "reports.slide1.text":
+            "Ключевые метрики и прогноз развития цифровых сервисов до конца года.",
+          "reports.slide2.tag": "Телеком",
+          "reports.slide2.title": "Рынок 5G-решений для бизнеса",
+          "reports.slide2.text":
+            "Сценарии внедрения и оценка готовности инфраструктуры крупных городов.",
+          "reports.slide3.tag": "Ритейл",
+          "reports.slide3.title": "Портрет цифрового покупателя 2024",
+          "reports.slide3.text":
+            "Поведение клиентов, гибридные каналы продаж и ключевые показатели лояльности.",
+          "reports.slide4.tag": "Промышленность",
+          "reports.slide4.title": "Автоматизация производственных цепочек",
+          "reports.slide4.text":
+            "Кейсы внедрения IIoT и оценка влияния на операционную эффективность предприятий.",
+          "reports.slide5.tag": "Госсектор",
+          "reports.slide5.title": "Цифровая трансформация услуг",
+          "reports.slide5.text":
+            "Анализ пользовательских сценариев и практики внедрения суперприложений.",
+          "reports.slide6.tag": "Стартапы",
+          "reports.slide6.title": "Инвестиции в AI-проекты",
+          "reports.slide6.text":
+            "Динамика сделок, перспективные направления и карта венчурных фондов.",
           "metrics.eyebrow": "Профессиональная помощь на каждом этапе.",
           "metrics.title": "Профессиональная помощь на каждом этапе.",
           "metrics.subtitle":
@@ -824,6 +1132,35 @@
           "clients.3": "Manufacturing",
           "clients.4": "Retail & eCommerce",
           "clients.5": "Public sector",
+          "reports.eyebrow": "Latest reports",
+          "reports.title": "Fresh insights from DataBook",
+          "reports.description":
+            "Browse curated market overviews and analytical briefs across priority industries.",
+          "reports.slideCta": "View preview",
+          "reports.slide1.tag": "Finance",
+          "reports.slide1.title": "Banking sector outlook Q2",
+          "reports.slide1.text":
+            "Key metrics and forecasts for the adoption of digital services through year-end.",
+          "reports.slide2.tag": "Telecom",
+          "reports.slide2.title": "5G solutions for enterprises",
+          "reports.slide2.text":
+            "Deployment scenarios and infrastructure readiness across major cities.",
+          "reports.slide3.tag": "Retail",
+          "reports.slide3.title": "Portrait of the digital shopper 2024",
+          "reports.slide3.text":
+            "Customer behaviour, hybrid sales channels and loyalty benchmarks.",
+          "reports.slide4.tag": "Industry",
+          "reports.slide4.title": "Automating production value chains",
+          "reports.slide4.text":
+            "IIoT implementation stories and impact on operational efficiency.",
+          "reports.slide5.tag": "Public sector",
+          "reports.slide5.title": "Digital transformation of services",
+          "reports.slide5.text":
+            "User scenarios and best practices for super app adoption.",
+          "reports.slide6.tag": "Startups",
+          "reports.slide6.title": "AI venture investments",
+          "reports.slide6.text":
+            "Deal dynamics, emerging themes and the venture fund landscape.",
           "metrics.eyebrow": "Support at every stage.",
           "metrics.title": "Professional support at every stage.",
           "metrics.subtitle":
@@ -916,6 +1253,7 @@
           ".hero-copy > *",
           ".hero-media",
           ".clients-strip .logo-tile",
+          ".reports-carousel .carousel-slide",
           ".metrics-grid .metric-card",
           ".steps .step-card",
           ".stories-grid .story-card",
@@ -1005,6 +1343,60 @@
       } else {
         initRevealAnimations();
       }
+
+      (() => {
+        const root = document.querySelector(".reports-carousel");
+        if (!root) {
+          return;
+        }
+
+        const track = root.querySelector(".carousel-track");
+        const prev = root.querySelector(".carousel-nav.prev");
+        const next = root.querySelector(".carousel-nav.next");
+
+        if (!track || !prev || !next) {
+          return;
+        }
+
+        const getGap = () => {
+          const style = window.getComputedStyle(track);
+          const gapValue = style.columnGap || style.gap || "0";
+          const parsed = parseFloat(gapValue);
+          return Number.isNaN(parsed) ? 0 : parsed;
+        };
+
+        const getScrollAmount = () => {
+          const firstSlide = track.querySelector(".carousel-slide");
+          if (!firstSlide) {
+            return track.clientWidth;
+          }
+          return firstSlide.getBoundingClientRect().width + getGap();
+        };
+
+        const updateNavState = () => {
+          const maxScroll = track.scrollWidth - track.clientWidth;
+          prev.disabled = track.scrollLeft <= 0;
+          next.disabled = track.scrollLeft >= maxScroll - 1;
+        };
+
+        prev.addEventListener("click", () => {
+          track.scrollBy({ left: -getScrollAmount(), behavior: "smooth" });
+        });
+
+        next.addEventListener("click", () => {
+          track.scrollBy({ left: getScrollAmount(), behavior: "smooth" });
+        });
+
+        track.addEventListener("scroll", () => {
+          window.requestAnimationFrame(updateNavState);
+        });
+
+        window.addEventListener("resize", () => {
+          window.requestAnimationFrame(updateNavState);
+        });
+
+        updateNavState();
+      })();
     </script>
   </body>
 </html>
