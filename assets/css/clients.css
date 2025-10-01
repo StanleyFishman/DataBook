@@ -1,0 +1,15 @@
+.clients-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 24px;
+  padding: 40px 0 80px;
+}
+
+.clients-strip .logo-tile {
+  padding: 20px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-light);
+  text-align: center;
+  font-weight: 600;
+  color: var(--text-muted);
+}

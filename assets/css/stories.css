@@ -1,0 +1,57 @@
+.stories-grid,
+.wall-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.story-card,
+.wall-card {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+}
+
+.story-visual,
+.wall-visual {
+  background: linear-gradient(135deg, rgba(15, 98, 254, 0.18), rgba(255, 171, 0, 0.18));
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.story-visual img,
+.wall-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.story-content,
+.wall-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.story-tag,
+.wall-tag {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.story-title,
+.wall-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.story-text,
+.wall-text {
+  color: var(--text-muted);
+  margin: 0;
+}

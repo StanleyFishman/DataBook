@@ -1,0 +1,53 @@
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.metric-card {
+  padding: 28px;
+  border-radius: var(--radius-md);
+  background: var(--bg-light);
+}
+
+.metric-card strong {
+  font-size: 2.4rem;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.metric-card p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 32px;
+}
+
+.step-card {
+  padding: 28px;
+  border-radius: var(--radius-md);
+  background: #ffffff;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.step-card span {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.step-card h3 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.step-card p {
+  margin: 0;
+  color: var(--text-muted);
+}
