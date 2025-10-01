@@ -400,6 +400,258 @@
         margin: 0;
       }
 
+      .reports-section .reports-carousel {
+        display: grid;
+        gap: 24px;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+
+      .report-card {
+        border-radius: var(--radius-md);
+        background: #ffffff;
+        box-shadow: var(--shadow-soft);
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        min-height: 320px;
+      }
+
+      .report-card__meta {
+        display: flex;
+        gap: 12px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--text-muted);
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+      }
+
+      .report-card__title {
+        font-size: 1.3rem;
+        margin: 0;
+        line-height: 1.3;
+      }
+
+      .report-card__excerpt {
+        margin: 0;
+        color: var(--text-muted);
+        line-height: 1.6;
+        flex: 1;
+      }
+
+      .report-card__actions {
+        margin-top: 12px;
+      }
+
+      .btn-outline {
+        background: #ffffff;
+        border: 1px solid rgba(12, 26, 42, 0.12);
+        color: var(--text-main);
+        transition: border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .btn-outline:hover,
+      .btn-outline:focus {
+        border-color: var(--accent);
+        color: var(--accent);
+        box-shadow: 0 18px 32px rgba(15, 98, 254, 0.12);
+      }
+
+      .report-modal {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 32px;
+        background: rgba(12, 26, 42, 0.6);
+        backdrop-filter: blur(6px);
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        z-index: 50;
+      }
+
+      .report-modal.active {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .report-modal__dialog {
+        background: #ffffff;
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-soft);
+        width: min(960px, 100%);
+        max-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        padding: 40px;
+        position: relative;
+      }
+
+      .report-modal__close {
+        position: absolute;
+        top: 24px;
+        right: 24px;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: none;
+        background: var(--bg-light);
+        color: var(--text-main);
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s ease, color 0.2s ease;
+      }
+
+      .report-modal__close:hover,
+      .report-modal__close:focus {
+        background: var(--accent);
+        color: #ffffff;
+      }
+
+      .report-modal__header {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .report-modal__label {
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--accent);
+      }
+
+      .report-modal__title {
+        margin: 0;
+        font-size: 1.6rem;
+        line-height: 1.3;
+      }
+
+      .report-modal__body {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        flex: 1;
+      }
+
+      .report-modal__counter {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
+
+      .report-page {
+        background: var(--bg-light);
+        border-radius: var(--radius-md);
+        padding: 32px;
+        flex: 1;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        line-height: 1.6;
+      }
+
+      .report-page__eyebrow {
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--accent);
+      }
+
+      .report-page h4 {
+        margin: 0;
+        font-size: 1.4rem;
+      }
+
+      .report-page p {
+        margin: 0;
+        color: var(--text-muted);
+      }
+
+      .report-page ul {
+        margin: 0;
+        padding-left: 20px;
+        color: var(--text-muted);
+        display: grid;
+        gap: 8px;
+      }
+
+      .report-page__note {
+        background: #ffffff;
+        border-radius: var(--radius-md);
+        padding: 18px 20px;
+        box-shadow: var(--shadow-soft);
+        font-size: 0.95rem;
+      }
+
+      .report-page__stat {
+        border-radius: var(--radius-md);
+        background: linear-gradient(135deg, rgba(15, 98, 254, 0.12), rgba(15, 98, 254, 0.05));
+        padding: 20px 24px;
+        display: grid;
+        gap: 4px;
+        font-weight: 600;
+      }
+
+      .report-page__stat span {
+        font-size: 2rem;
+        color: var(--accent);
+      }
+
+      .report-modal__controls {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .report-modal__nav {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .btn-round {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        border: none;
+        background: var(--bg-light);
+        color: var(--text-main);
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.2s ease, color 0.2s ease;
+      }
+
+      .btn-round:hover,
+      .btn-round:focus {
+        background: var(--accent);
+        color: #ffffff;
+      }
+
+      .btn-round:disabled {
+        opacity: 0.4;
+        pointer-events: none;
+      }
+
+      .report-modal__hint {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+      }
+
+      body.modal-open {
+        overflow: hidden;
+      }
+
       .cta-section {
         background: var(--bg-light);
         border-radius: var(--radius-lg);
@@ -447,6 +699,11 @@
         .section {
           padding: 56px 0;
         }
+
+        .report-modal__dialog {
+          width: min(720px, 100%);
+          padding: 32px;
+        }
       }
 
       @media (max-width: 640px) {
@@ -470,6 +727,34 @@
 
         .cta-section {
           padding: 48px 24px;
+        }
+
+        .report-modal {
+          padding: 16px;
+        }
+
+        .report-modal__dialog {
+          padding: 28px 20px;
+        }
+
+        .report-page {
+          padding: 24px;
+        }
+
+        .report-modal__controls {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .report-modal__nav {
+          width: 100%;
+          justify-content: space-between;
+        }
+
+        .btn-round {
+          width: auto;
+          border-radius: var(--radius-sm);
+          height: 44px;
         }
       }
     </style>
@@ -497,6 +782,61 @@
     <main>
       <section class="full-bleed-banner" aria-label="Intro banner">
         <img src="assets/intro-banner.png" alt="" />
+      </section>
+
+      <section class="section reports-section" id="reports">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Исследования DataBook</p>
+              <h2>Экспресс-превью аналитических отчетов</h2>
+            </div>
+            <p>
+              Коротко знакомим с ключевыми выводами и структурой наших материалов — пролистайте первые страницы до полной версии.
+            </p>
+          </div>
+          <div class="reports-carousel">
+            <article class="report-card">
+              <div class="report-card__meta">
+                <span>2024</span>
+                <span>AI &amp; Automation</span>
+              </div>
+              <h3 class="report-card__title">Рынок искусственного интеллекта в Европе</h3>
+              <p class="report-card__excerpt">
+                Свежий обзор внедрения AI в корпоративном сегменте: сценарии, бюджеты и барьеры роста.
+              </p>
+              <div class="report-card__actions">
+                <button class="btn btn-outline preview-btn" data-report="ai-europe">Смотреть превью</button>
+              </div>
+            </article>
+            <article class="report-card">
+              <div class="report-card__meta">
+                <span>2024</span>
+                <span>Retail &amp; eCom</span>
+              </div>
+              <h3 class="report-card__title">Цифровая полка и клиентский опыт</h3>
+              <p class="report-card__excerpt">
+                Как бренды управляют ассортиментом и аналитикой спроса в условиях нестабильного спроса.
+              </p>
+              <div class="report-card__actions">
+                <button class="btn btn-outline preview-btn" data-report="digital-shelf">Смотреть превью</button>
+              </div>
+            </article>
+            <article class="report-card">
+              <div class="report-card__meta">
+                <span>2023</span>
+                <span>Financial Services</span>
+              </div>
+              <h3 class="report-card__title">DataOps в банковском секторе</h3>
+              <p class="report-card__excerpt">
+                Лучшие практики построения команд данных и автоматизации отчетности в финорганизациях.
+              </p>
+              <div class="report-card__actions">
+                <button class="btn btn-outline preview-btn" data-report="dataops-banking">Смотреть превью</button>
+              </div>
+            </article>
+          </div>
+        </div>
       </section>
 
       <section class="section" id="stories">
@@ -707,6 +1047,29 @@
       </section>
     </main>
 
+    <div class="report-modal" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="report-modal__dialog">
+        <button class="report-modal__close" type="button" aria-label="Закрыть превью">×</button>
+        <div class="report-modal__header">
+          <span class="report-modal__label">Превью отчета</span>
+          <h3 class="report-modal__title"></h3>
+        </div>
+        <div class="report-modal__body">
+          <div class="report-modal__counter"></div>
+          <div class="report-modal__page"></div>
+        </div>
+        <div class="report-modal__controls">
+          <div class="report-modal__hint">
+            Используйте стрелки клавиатуры или кнопки ниже, чтобы перелистывать страницы.
+          </div>
+          <div class="report-modal__nav">
+            <button class="btn-round report-modal__prev" type="button" aria-label="Предыдущая страница">‹</button>
+            <button class="btn-round report-modal__next" type="button" aria-label="Следующая страница">›</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <footer>
       <div class="container footer-inner">
         <strong data-i18n="footer.brand">DataBook</strong>
@@ -897,6 +1260,271 @@
 
       const savedLang = localStorage.getItem("databook-lang") || "ru";
       setLanguage(savedLang);
+
+      const reportPreviews = {
+        "ai-europe": {
+          title: "Рынок искусственного интеллекта в Европе 2024",
+          pages: [
+            {
+              eyebrow: "Executive summary",
+              title: "Переход к прикладным сценариям",
+              body: [
+                "Инвестиции в AI-сервисы выросли на 38% в 2023 году, ключевой спрос формируют корпоративные клиенты среднего сегмента.",
+                "Компании смещают приоритеты в пользу прикладных решений: автоматизация документооборота, прогнозирование спроса и поддержка клиентов.",
+                "Фокус DataBook — помогать выстраивать жизненный цикл данных и MVP-проекты с гарантированным возвратом инвестиций."
+              ],
+              stat: {
+                value: "67%",
+                label: "компаний планируют увеличить бюджеты на AI до конца 2024 года."
+              }
+            },
+            {
+              eyebrow: "Market signals",
+              title: "Ключевые драйверы спроса",
+              body: [
+                "Восстановление поставок вычислительной инфраструктуры и рост экосистем open-source снижает стоимость владения решениями.",
+                "Регуляторика становится катализатором зрелости: ESG-отчетность и защита данных требуют новых аналитических инструментов."
+              ],
+              list: [
+                "82% респондентов внедряют AI для повышения скорости принятия решений",
+                "56% отмечают дефицит компетенций и необходимость обучения команд",
+                "42% компаний готовы к пилотным проектам с внешними партнёрами"
+              ]
+            },
+            {
+              eyebrow: "DataBook guidance",
+              title: "Первые шаги к внедрению",
+              body: [
+                "Определите 2–3 бизнес-кейса с быстрым эффектом и готовыми данными — это ускорит инвестиционные решения.",
+                "Создайте кросс-функциональную рабочую группу и назначьте ответственного за управление данными.",
+                "Сопроводите запуск системой метрик: точность моделей, операционные затраты, удовлетворённость команд."
+              ],
+              note: "Команда DataBook помогает подготовить дорожную карту внедрения и контролировать эффект на каждом этапе."
+            }
+          ]
+        },
+        "digital-shelf": {
+          title: "Цифровая полка и клиентский опыт 2024",
+          pages: [
+            {
+              eyebrow: "Snapshot",
+              title: "Как меняется поведение покупателей",
+              body: [
+                "Рост доли онлайн-продаж в ключевых категориях достиг 24%, основное влияние оказывают персонализированные витрины.",
+                "Покупатели ожидают прозрачности: наличие, цены и отзывы должны синхронизироваться во всех каналах продаж."
+              ],
+              stat: {
+                value: "74%",
+                label: "пользователей бросают корзину, если товар недоступен или неточные данные." 
+              }
+            },
+            {
+              eyebrow: "Best practices",
+              title: "Метрики эффективности цифровой полки",
+              body: [
+                "DataBook сравнивает 60+ показателей видимости и конверсии, включая качество контента и полноту карточек.",
+                "Комбинация поведенческих сигналов и данных о запасах помогает выстраивать промо и рекомендации."
+              ],
+              list: [
+                "Единый каталог атрибутов для всех каналов",
+                "Автоматическое обновление ассортимента раз в 2 часа",
+                "Использование A/B тестов для визуального контента"
+              ]
+            },
+            {
+              eyebrow: "Action plan",
+              title: "Что предлагаем сделать сейчас",
+              body: [
+                "Аудит текущей цифровой полки и выявление точек роста в контенте и аналитике.",
+                "Перенастройка дашбордов с учетом ключевых показателей бренда и категорий.",
+                "Подготовка обучающего трека для команды коммерции и маркетинга."
+              ],
+              note: "Наши эксперты помогают перейти от оперативных задач к стратегии роста LTV и удержания клиентов."
+            }
+          ]
+        },
+        "dataops-banking": {
+          title: "DataOps в банковском секторе",
+          pages: [
+            {
+              eyebrow: "Overview",
+              title: "Зачем банкам DataOps",
+              body: [
+                "Ускорение циклов выпуска продуктов требует синхронизации аналитики, разработки и compliance.",
+                "DataOps снижает операционные риски благодаря единому управлению качеством данных и автоматизации тестирования."
+              ],
+              stat: {
+                value: "30%",
+                label: "сокращение времени на подготовку отчетов после внедрения DataOps-подхода." 
+              }
+            },
+            {
+              eyebrow: "Operating model",
+              title: "Как организовать процессы",
+              body: [
+                "Создайте платформенную команду, отвечающую за пайплайны данных, мониторинг и безопасность.",
+                "Используйте декларативные пайплайны и инфраструктуру как код для ускорения поставки изменений."
+              ],
+              list: [
+                "Каталог данных с автоматической сертификацией",
+                "Многоуровневая система оповещений о качестве",
+                "Централизованный контроль версий моделей"
+              ]
+            },
+            {
+              eyebrow: "Roadmap",
+              title: "Что включить в первые 90 дней",
+              body: [
+                "Провести диагностику зрелости и зафиксировать критичные риски в отчетности.",
+                "Определить 2 приоритетных процесса (например, кредитное скорингование и KYC) для запуска пилота.",
+                "Подготовить регламенты обмена данными и метрики качества."
+              ],
+              note: "DataBook сопровождает внедрение DataOps и выстраивает систему непрерывного улучшения."
+            }
+          ]
+        }
+      };
+
+      const previewButtons = document.querySelectorAll(".preview-btn");
+      const modal = document.querySelector(".report-modal");
+
+      if (modal && previewButtons.length) {
+        const modalTitle = modal.querySelector(".report-modal__title");
+        const pageContainer = modal.querySelector(".report-modal__page");
+        const counter = modal.querySelector(".report-modal__counter");
+        const prevBtn = modal.querySelector(".report-modal__prev");
+        const nextBtn = modal.querySelector(".report-modal__next");
+        const closeBtn = modal.querySelector(".report-modal__close");
+        const focusableElements = [closeBtn, prevBtn, nextBtn];
+
+        let currentReport = null;
+        let currentPage = 0;
+        let lastFocusedElement = null;
+
+        function renderPage() {
+          if (!currentReport) return;
+          const report = reportPreviews[currentReport];
+          if (!report) return;
+          const page = report.pages[currentPage];
+          if (!page) return;
+
+          modalTitle.textContent = report.title;
+          counter.textContent = `Страница ${currentPage + 1} из ${report.pages.length}`;
+
+          let html = '<div class="report-page">';
+          if (page.eyebrow) {
+            html += `<span class="report-page__eyebrow">${page.eyebrow}</span>`;
+          }
+          if (page.title) {
+            html += `<h4>${page.title}</h4>`;
+          }
+          if (Array.isArray(page.body)) {
+            html += page.body.map((paragraph) => `<p>${paragraph}</p>`).join("");
+          }
+          if (Array.isArray(page.list) && page.list.length) {
+            html += `<ul>${page.list.map((item) => `<li>${item}</li>`).join("")}</ul>`;
+          }
+          if (page.stat) {
+            html += `<div class="report-page__stat"><span>${page.stat.value}</span>${page.stat.label}</div>`;
+          }
+          if (page.note) {
+            html += `<div class="report-page__note">${page.note}</div>`;
+          }
+          html += "</div>";
+
+          pageContainer.innerHTML = html;
+          prevBtn.disabled = currentPage === 0;
+          nextBtn.disabled = currentPage === report.pages.length - 1;
+        }
+
+        function goToPage(index) {
+          if (!currentReport) return;
+          const report = reportPreviews[currentReport];
+          if (!report) return;
+          if (index < 0 || index >= report.pages.length) return;
+          currentPage = index;
+          renderPage();
+        }
+
+        function openModal(reportId) {
+          if (!reportPreviews[reportId]) return;
+          currentReport = reportId;
+          currentPage = 0;
+          lastFocusedElement = document.activeElement;
+          modal.classList.add("active");
+          modal.setAttribute("aria-hidden", "false");
+          document.body.classList.add("modal-open");
+          renderPage();
+          if (closeBtn) {
+            closeBtn.focus();
+          }
+        }
+
+        function closeModal() {
+          modal.classList.remove("active");
+          modal.setAttribute("aria-hidden", "true");
+          document.body.classList.remove("modal-open");
+          currentReport = null;
+          currentPage = 0;
+          if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+            lastFocusedElement.focus();
+          }
+        }
+
+        previewButtons.forEach((button) => {
+          button.addEventListener("click", () => openModal(button.dataset.report));
+        });
+
+        if (prevBtn) {
+          prevBtn.addEventListener("click", () => goToPage(currentPage - 1));
+        }
+
+        if (nextBtn) {
+          nextBtn.addEventListener("click", () => goToPage(currentPage + 1));
+        }
+
+        if (closeBtn) {
+          closeBtn.addEventListener("click", closeModal);
+        }
+
+        modal.addEventListener("click", (event) => {
+          if (event.target === modal) {
+            closeModal();
+          }
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (!modal.classList.contains("active")) return;
+          if (event.key === "Escape") {
+            event.preventDefault();
+            closeModal();
+          } else if (event.key === "ArrowRight") {
+            event.preventDefault();
+            goToPage(currentPage + 1);
+          } else if (event.key === "ArrowLeft") {
+            event.preventDefault();
+            goToPage(currentPage - 1);
+          }
+        });
+
+        focusableElements.forEach((btn) => {
+          if (!btn) return;
+          btn.addEventListener("keydown", (event) => {
+            if (event.key === "Tab") {
+              const focusable = focusableElements.filter((el) => el && !el.disabled);
+              const first = focusable[0];
+              const last = focusable[focusable.length - 1];
+              if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last.focus();
+              } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first.focus();
+              }
+            }
+          });
+        });
+      }
     </script>
   </body>
 </html>
