@@ -690,10 +690,11 @@
         <div class="top-bar">
           <div class="logo" data-i18n="logo">DataBook</div>
           <nav>
-            <a href="#services" data-i18n="nav.solutions">Решения</a>
-            <a href="#research" data-i18n="nav.research">Исследования</a>
-            <a href="#cases" data-i18n="nav.cases">Кейсы</a>
-            <a href="#team" data-i18n="nav.team">Команда</a>
+            <a href="#services" data-i18n="nav.services">Услуги</a>
+            <a href="#research" data-i18n="nav.industries">Отрасли</a>
+            <a href="#reports" data-i18n="nav.reports">Исследования</a>
+            <a href="#stories" data-i18n="nav.cases">Кейсы</a>
+            <a href="#wall" data-i18n="nav.team">Команда</a>
             <a href="#contact" data-i18n="nav.contact">Контакты</a>
           </nav>
           <div class="language-toggle" role="group" aria-label="Language switcher">
@@ -707,6 +708,27 @@
     <main>
       <section class="full-bleed-banner" aria-label="Intro banner">
         <img src="assets/intro-banner.png" alt="" />
+      </section>
+
+
+
+      <section class="container hero" id="services">
+        <div class="hero-copy">
+          <!-- <p class="eyebrow" data-i18n="hero.eyebrow">Премиальный консалтинг</p> -->
+          <h1 data-i18n="hero.title">Профессиональная помощь на каждом этапе</h1>
+          <p data-i18n="hero.subtitle">
+            Эксперты и аналитики DataBook помогут вам оценить новые возможности,
+            и сформировать программу развития
+            бизнеса.
+          </p>
+          <!-- <div class="hero-cta">
+            <button class="btn btn-primary" data-i18n="hero.ctaPrimary">Получить консультацию</button>
+            <button class="btn btn-ghost" data-i18n="hero.ctaSecondary">Посмотреть презентацию</button>
+          </div> -->
+        </div>
+        <!-- <div class="hero-media" aria-hidden="true">
+          <img src="assets/hero-media.png" alt="" />
+        </div> -->
       </section>
 
       <section class="section" id="stories">
@@ -758,41 +780,20 @@
         </div>
       </section>
 
-      <section class="container hero" id="services">
-        <div class="hero-copy">
-          <p class="eyebrow" data-i18n="hero.eyebrow">Премиальный консалтинг</p>
-          <h1 data-i18n="hero.title">DataBook. Предоставление персонализированной помощи.</h1>
-          <p data-i18n="hero.subtitle">
-            Эксперты и аналитики DataBook помогут вам увидеть новые возможности,
-            встроить цифровые решения в процессы и масштабировать развитие
-            бизнеса.
-          </p>
-          <div class="hero-cta">
-            <button class="btn btn-primary" data-i18n="hero.ctaPrimary">Получить консультацию</button>
-            <button class="btn btn-ghost" data-i18n="hero.ctaSecondary">Посмотреть презентацию</button>
-          </div>
-        </div>
-        <div class="hero-media" aria-hidden="true">
-          <img src="assets/hero-media.png" alt="" />
-        </div>
-      </section>
-
-
-
       <div class="container clients-strip" id="research">
-        <div class="logo-tile" data-i18n="clients.1">Банковский сектор</div>
-        <div class="logo-tile" data-i18n="clients.2">IT &amp; телеком</div>
-        <div class="logo-tile" data-i18n="clients.3">Производство</div>
-        <div class="logo-tile" data-i18n="clients.4">Ритейл и eCommerce</div>
-        <div class="logo-tile" data-i18n="clients.5">Госсектор</div>
+        <div class="logo-tile" data-i18n="clients.1">Маркетинговые исследования</div>
+        <div class="logo-tile" data-i18n="clients.2">Финансовое моделирование</div>
+        <div class="logo-tile" data-i18n="clients.3">Архитектура сделки</div>
+        <div class="logo-tile" data-i18n="clients.4">Организация финансирования</div>
+        <div class="logo-tile" data-i18n="clients.5">Сервьюерское сопровождение</div>
       </div>
 
       <section class="reports-carousel" id="reports" aria-labelledby="reports-heading">
         <div class="carousel-inner">
           <div class="carousel-header">
             <div>
-              <p class="eyebrow" data-i18n="reports.eyebrow">Свежие отчеты</p>
-              <h2 id="reports-heading" data-i18n="reports.title">Актуальные исследования DataBook</h2>
+              <!-- <p class="eyebrow" data-i18n="reports.eyebrow">Свежие отчеты</p> -->
+              <h2 id="reports-heading" data-i18n="reports.title">Маркетинговые исследования DataBook</h2>
             </div>
             <div class="carousel-controls" aria-hidden="false">
               <button class="carousel-nav prev" type="button" aria-label="Предыдущий отчет">&#8592;</button>
@@ -800,7 +801,7 @@
             </div>
           </div>
           <p class="carousel-description" data-i18n="reports.description">
-            Выберите релевантные обзоры рынка и аналитические материалы — мы подготовили подборку по ключевым отраслям.
+            Выберите релевантные обзоры рынка и аналитические материалы — мы подготовим персонифицированное решение.
           </p>
           <div class="carousel-window">
             <div class="carousel-track">
@@ -1002,7 +1003,7 @@
     <footer>
       <div class="container footer-inner">
         <strong data-i18n="footer.brand">DataBook</strong>
-        <span data-i18n="footer.copyright">© 2024 DataBook. Все права защищены.</span>
+        <span data-i18n="footer.copyright">© 2025 DataBook. Все права защищены.</span>
       </div>
     </footer>
 
@@ -1010,8 +1011,9 @@
       const translations = {
         ru: {
           logo: "DataBook",
-          "nav.solutions": "Решения",
-          "nav.research": "Исследования",
+          "nav.services": "Услуги",
+          "nav.industries": "Отрасли",
+          "nav.reports": "Исследования",
           "nav.cases": "Кейсы",
           "nav.team": "Команда",
           "nav.contact": "Контакты",
@@ -1021,15 +1023,15 @@
             "Эксперты и аналитики DataBook помогут вам увидеть новые возможности, встроить цифровые решения в процессы и масштабировать развитие бизнеса.",
           "hero.ctaPrimary": "Получить консультацию",
           "hero.ctaSecondary": "Посмотреть презентацию",
-          "clients.1": "Обзоры рынков",
-          "clients.2": "Цифровые технологии и ИИ",
-          "clients.3": "Маркетинговые исследования",
-          "clients.4": "Финансовое моделирование",
-          "clients.5": "Организация финансирования",
+          "clients.1": "Маркетинговые исследования",
+          "clients.2": "Финансовое моделирование",
+          "clients.3": "Архитектура сделки",
+          "clients.4": "Организация финансирования",
+          "clients.5": "Сервьюерское сопровождение",
           "reports.eyebrow": "Свежие отчеты",
-          "reports.title": "Актуальные исследования DataBook",
+          "reports.title": "Маркетинговые исследования DataBook",
           "reports.description":
-            "Выберите релевантные обзоры рынка и аналитические материалы — мы подготовили подборку по ключевым отраслям.",
+            "Выберите релевантные обзоры рынка и аналитические материалы — мы подготовим персонифицированное решение.",
           "reports.slideCta": "Смотреть превью",
           "reports.slide1.tag": "Финансы",
           "reports.slide1.title": "Обзор банковского сектора Q2",
@@ -1090,15 +1092,15 @@
           "stories.story1.tag": "Аналитика",
           "stories.story1.title": "Будущее бизнеса начинается с видения",
           "stories.story1.text":
-            "Узнайте, как новейшие инструменты DataBook могут вывести ваш бизнес на новый уровень",
+            "Узнайте, как новейшие инструменты DataBook помогут вам вывести бизнес на новый уровень",
           "stories.story2.tag": "Консалтинг",
           "stories.story2.title": "DataBook помогает расти, развиваться и инвестировать",
           "stories.story2.text":
-            "Команда DataBook готова помочь вам найти правильные решения для вашего бизнеса, независимо от того, начинаете ли вы свой бизнес, развиваетесь или инвестируете",
+            "Команда DataBook поможет вам найти эффективные решения для вашего бизнеса, независимо от того, начинаете ли вы свой бизнес, развиваетесь или инвестируете в новые проекты",
           "stories.story3.tag": "Обучение",
           "stories.story3.title": "Реальные люди. Профессиональная команда",
           "stories.story3.text":
-            "Мы объединяем экспертов, чтобы находить лучшие решения для вашего бизнеса",
+            "Мы объединяем экспертов, знания и технологии, чтобы находить лучшие решения для вашего бизнеса",
           "stories.story4.tag": "Training",
           "stories.story4.title": "Мы знаем свое дело. И ваше тоже",
           "stories.story4.text":
@@ -1106,18 +1108,19 @@
           "stories.story5.tag": "Training",
           "stories.story5.title": "Семинары. Обучающие программы",
           "stories.story5.text":
-            "Знания и навыки, которые дают конкурентное преимущество",
+            "Знания и навыки, нетворкинг и форсайты",
           "cta.title": "Сделайте следующий шаг.",
           "cta.text":
             "Обратитесь к эксперту DataBook — мы подготовим персонализированное решение для вашего бизнеса.",
           "cta.cta": "Связаться с экспертом",
           "footer.brand": "DataBook",
-          "footer.copyright": "© 2024 DataBook. Все права защищены."
+          "footer.copyright": "© 2025 DataBook. Все права защищены."
         },
         en: {
           logo: "DataBook",
-          "nav.solutions": "Solutions",
-          "nav.research": "Research",
+          "nav.services": "Services",
+          "nav.industries": "Industries",
+          "nav.reports": "Research",
           "nav.cases": "Case studies",
           "nav.team": "Team",
           "nav.contact": "Contact",
@@ -1218,7 +1221,7 @@
             "Reach out to a DataBook expert — we'll craft a tailored solution for your business.",
           "cta.cta": "Contact an expert",
           "footer.brand": "DataBook",
-          "footer.copyright": "© 2024 DataBook. All rights reserved."
+          "footer.copyright": "© 2025 DataBook. All rights reserved."
         }
       };
 
