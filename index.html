@@ -118,6 +118,10 @@
         box-shadow: 0 6px 16px rgba(12, 26, 42, 0.12);
       }
 
+      .hero-banner {
+        position: relative;
+      }
+
       .full-bleed-banner {
         width: 100%;
       }
@@ -128,24 +132,38 @@
         height: auto;
       }
 
-      .hero {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 56px;
-        padding: 80px 0 48px;
+      .hero-heading {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        padding: 0 clamp(32px, 9vw, 184px) clamp(32px, 7vw, 104px);
+        pointer-events: none;
       }
 
-      .hero-copy h1 {
-        font-size: clamp(2.4rem, 3vw + 1rem, 3.6rem);
-        line-height: 1.1;
-        margin: 0 0 20px;
+      .hero-heading .container {
+        pointer-events: auto;
       }
 
-      .hero-copy p {
+      .hero-heading h1 {
+        margin: 0;
+        color: #ffffff;
+        font-size: clamp(1.8rem, 6vw, 4rem);
+        line-height: 1.05;
+        text-shadow: 0 12px 28px rgba(12, 26, 42, 0.45);
+      }
+
+      .hero-description {
+        padding: clamp(32px, 6vw, 72px) 0 0;
+      }
+
+      .hero-description p {
+        margin: 0;
         font-size: 1.1rem;
         color: var(--text-muted);
-        margin: 0 0 32px;
-        max-width: 520px;
+        max-width: 640px;
+        line-height: 1.6;
       }
 
       .hero-cta {
@@ -607,13 +625,8 @@
       }
 
       @media (max-width: 960px) {
-        .hero {
-          grid-template-columns: 1fr;
-        }
-
-        .hero-media {
-          order: -1;
-          min-height: 320px;
+        .hero-heading {
+          padding: 0 clamp(24px, 7vw, 120px) clamp(24px, 8vw, 88px);
         }
 
         .section {
@@ -654,8 +667,16 @@
           justify-content: space-between;
         }
 
-        .hero {
-          padding: 56px 0 32px;
+        .hero-heading {
+          padding: 0 24px clamp(16px, 12vw, 56px);
+        }
+
+        .hero-heading h1 {
+          font-size: clamp(1.6rem, 8vw, 2.6rem);
+        }
+
+        .hero-description {
+          padding-top: clamp(24px, 9vw, 56px);
         }
 
         .cta-section {
@@ -706,29 +727,27 @@
     </header>
 
     <main>
-      <section class="full-bleed-banner" aria-label="Intro banner">
-        <img src="assets/intro-banner.png" alt="" />
+      <section class="hero-banner" aria-label="Intro banner">
+        <div class="full-bleed-banner">
+          <img src="assets/intro-banner.png" alt="" />
+        </div>
+
+        <div class="hero-heading">
+          <div class="container">
+            <!-- <p class="eyebrow" data-i18n="hero.eyebrow">Премиальный консалтинг</p> -->
+            <h1 data-i18n="hero.title">Профессиональная помощь на каждом этапе</h1>
+          </div>
+        </div>
       </section>
 
-
-
-      <section class="container hero" id="services">
-        <div class="hero-copy">
-          <!-- <p class="eyebrow" data-i18n="hero.eyebrow">Премиальный консалтинг</p> -->
-          <h1 data-i18n="hero.title">Профессиональная помощь на каждом этапе</h1>
+      <section class="hero-description" id="services">
+        <div class="container">
           <p data-i18n="hero.subtitle">
             Эксперты и аналитики DataBook помогут вам оценить новые возможности,
             и сформировать программу развития
             бизнеса.
           </p>
-          <!-- <div class="hero-cta">
-            <button class="btn btn-primary" data-i18n="hero.ctaPrimary">Получить консультацию</button>
-            <button class="btn btn-ghost" data-i18n="hero.ctaSecondary">Посмотреть презентацию</button>
-          </div> -->
         </div>
-        <!-- <div class="hero-media" aria-hidden="true">
-          <img src="assets/hero-media.png" alt="" />
-        </div> -->
       </section>
 
       <section class="section" id="stories">
