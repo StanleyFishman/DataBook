@@ -226,13 +226,8 @@
 
       .reports-carousel {
         position: relative;
-        width: 100vw;
-        left: 50%;
-        right: 50%;
-        margin-left: -50vw;
-        margin-right: -50vw;
         padding: clamp(48px, 8vw, 96px) 0;
-        background: linear-gradient(135deg, #050505 0%, #1b1b1e 45%, #3c3c42 100%);
+        background: transparent;
       }
 
       .reports-carousel .carousel-inner {
@@ -241,7 +236,7 @@
         display: flex;
         flex-direction: column;
         gap: 24px;
-        color: #ffffff;
+        color: var(--text-main);
       }
 
       .reports-carousel .carousel-header {
@@ -257,14 +252,10 @@
         color: inherit;
       }
 
-      .reports-carousel .eyebrow {
-        color: rgba(255, 255, 255, 0.7);
-      }
-
       .reports-carousel .carousel-description {
         max-width: 520px;
         margin: 0;
-        color: rgba(255, 255, 255, 0.72);
+        color: var(--text-muted);
         font-size: 1.05rem;
       }
 
@@ -277,9 +268,9 @@
         width: 44px;
         height: 44px;
         border-radius: 50%;
-        border: 1px solid rgba(255, 255, 255, 0.4);
-        background: rgba(15, 98, 254, 0.15);
-        color: #ffffff;
+        border: 1px solid rgba(12, 26, 42, 0.12);
+        background: rgba(15, 98, 254, 0.12);
+        color: var(--accent);
         font-size: 1.2rem;
         font-weight: 600;
         cursor: pointer;
@@ -289,8 +280,8 @@
       .carousel-nav:hover:not([disabled]),
       .carousel-nav:focus-visible:not([disabled]) {
         outline: none;
-        background: rgba(15, 98, 254, 0.3);
-        border-color: rgba(255, 255, 255, 0.7);
+        background: rgba(15, 98, 254, 0.18);
+        border-color: rgba(12, 26, 42, 0.22);
         transform: translateY(-2px);
       }
 
@@ -316,6 +307,7 @@
         padding-bottom: 12px;
         margin: 0;
         list-style: none;
+        align-items: stretch;
       }
 
       .carousel-track::-webkit-scrollbar {
@@ -329,6 +321,7 @@
 
       .carousel-slide {
         scroll-snap-align: start;
+        display: flex;
       }
 
       .report-cover {
@@ -339,6 +332,7 @@
         gap: 16px;
         padding: clamp(24px, 3vw, 32px);
         min-height: 320px;
+        height: 100%;
         border-radius: var(--radius-lg);
         background: linear-gradient(
           135deg,
