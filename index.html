@@ -299,7 +299,7 @@
       .carousel-track {
         display: grid;
         grid-auto-flow: column;
-        grid-auto-columns: minmax(260px, 340px);
+        grid-auto-columns: minmax(360px, 420px);
         gap: clamp(16px, 4vw, 32px);
         overflow-x: auto;
         scroll-snap-type: x mandatory;
@@ -329,9 +329,9 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        gap: 16px;
-        padding: clamp(24px, 3vw, 32px);
-        min-height: 320px;
+        gap: clamp(16px, 2vw, 20px);
+        padding: clamp(28px, 3vw, 36px);
+        min-height: 260px;
         height: 100%;
         border-radius: var(--radius-lg);
         background: linear-gradient(
@@ -366,13 +366,15 @@
 
       .report-cover h3 {
         margin: 0;
-        font-size: clamp(1.25rem, 1vw + 1rem, 1.6rem);
-        line-height: 1.2;
+        font-size: clamp(1.2rem, 0.7rem + 1vw, 1.55rem);
+        line-height: 1.25;
+        max-width: 24ch;
       }
 
       .report-cover p {
         margin: 0;
         color: rgba(255, 255, 255, 0.85);
+        max-width: 38ch;
       }
 
       .report-link {
@@ -854,60 +856,60 @@
             <div class="carousel-track">
               <article class="carousel-slide">
                 <div class="report-cover" style="--cover-hue: 210">
-                  <span class="report-tag" data-i18n="reports.slide1.tag">Финансы</span>
-                  <h3 data-i18n="reports.slide1.title">Обзор банковского сектора Q2</h3>
+                  <span class="report-tag" data-i18n="reports.slide1.tag">Компрессоры</span>
+                  <h3 data-i18n="reports.slide1.title">РЫНОК КОМПРЕССОРНОГО ОБОРУДОВАНИЯ</h3>
                   <p data-i18n="reports.slide1.text">
-                    Ключевые метрики и прогноз развития цифровых сервисов до конца года.
+                    Анализ инвестиционных программ ВИНКов и стратегий ключевых игроков. Глубокий разбор перспективных сегментов: от винтовых компрессоров для КИПиА до турбокомпрессоров большой мощности для МГ и НПЗ. Прогноз спроса до 2030 года.
                   </p>
                   <button class="report-link" type="button" data-i18n="reports.slideCta">Смотреть превью</button>
                 </div>
               </article>
               <article class="carousel-slide">
                 <div class="report-cover" style="--cover-hue: 170">
-                  <span class="report-tag" data-i18n="reports.slide2.tag">Телеком</span>
-                  <h3 data-i18n="reports.slide2.title">Рынок 5G-решений для бизнеса</h3>
+                  <span class="report-tag" data-i18n="reports.slide2.tag">Теплообмен</span>
+                  <h3 data-i18n="reports.slide2.title">ТЕПЛООБМЕННОЕ ОБОРУДОВАНИЕ ДЛЯ НЕФТЕХИМИИ</h3>
                   <p data-i18n="reports.slide2.text">
-                    Сценарии внедрения и оценка готовности инфраструктуры крупных городов.
+                    Сценарии внедрения и оценка влияния новых экологических стандартов. Анализ трендов в материалах (дуплекс, хастелой) и конструкциях (паяные, спиральные). Ключевые инвестпроекты, формирующие спрос, и требования заказчиков.
                   </p>
                   <button class="report-link" type="button" data-i18n="reports.slideCta">Смотреть превью</button>
                 </div>
               </article>
               <article class="carousel-slide">
                 <div class="report-cover" style="--cover-hue: 25">
-                  <span class="report-tag" data-i18n="reports.slide3.tag">Ритейл</span>
-                  <h3 data-i18n="reports.slide3.title">Портрет цифрового покупателя 2024</h3>
+                  <span class="report-tag" data-i18n="reports.slide3.tag">Водоподготовка</span>
+                  <h3 data-i18n="reports.slide3.title">ТЕХНОЛОГИИ ВОДОПОДГОТОВКИ ДЛЯ ПРОМЫШЛЕННОСТИ</h3>
                   <p data-i18n="reports.slide3.text">
-                    Поведение клиентов, гибридные каналы продаж и ключевые показатели лояльности.
+                    Экономика перехода на замкнутый цикл водопользования. Сравнительный анализ технологий (ультрафильтрация, обратный осмос, озонирование). Обзор рынка, драйверы спроса со стороны ТЭК, металлургии и ХВП.
                   </p>
                   <button class="report-link" type="button" data-i18n="reports.slideCta">Смотреть превью</button>
                 </div>
               </article>
               <article class="carousel-slide">
                 <div class="report-cover" style="--cover-hue: 320">
-                  <span class="report-tag" data-i18n="reports.slide4.tag">Промышленность</span>
-                  <h3 data-i18n="reports.slide4.title">Автоматизация производственных цепочек</h3>
+                  <span class="report-tag" data-i18n="reports.slide4.tag">Энергетика</span>
+                  <h3 data-i18n="reports.slide4.title">СИСТЕМЫ АВАРИЙНОГО ПИТАНИЯ (БАВР) ДЛЯ КРИТИЧЕСКОЙ ИНФРАСТРУКТУРЫ</h3>
                   <p data-i18n="reports.slide4.text">
-                    Кейсы внедрения IIoT и оценка влияния на операционную эффективность предприятий.
+                    Влияние новых требований Минпромторга на емкость рынка. Анализ объемов рынка с учетом модернизации генерирующих мощностей и данных о капитальном ремонте. Профили основных игроков и их производственные компетенции.
                   </p>
                   <button class="report-link" type="button" data-i18n="reports.slideCta">Смотреть превью</button>
                 </div>
               </article>
               <article class="carousel-slide">
                 <div class="report-cover" style="--cover-hue: 260">
-                  <span class="report-tag" data-i18n="reports.slide5.tag">Госсектор</span>
-                  <h3 data-i18n="reports.slide5.title">Цифровая трансформация услуг</h3>
+                  <span class="report-tag" data-i18n="reports.slide5.tag">Газоразделение</span>
+                  <h3 data-i18n="reports.slide5.title">ВОЗДУХОРАЗДЕЛИТЕЛЬНЫЕ УСТАНОВКИ (ВРУ)</h3>
                   <p data-i18n="reports.slide5.text">
-                    Анализ пользовательских сценариев и практики внедрения суперприложений.
+                    Перспективы роста в связи с развитием ВИЭ и водородной энергетики. Оценка потребности в кислороде, азоте и аргоне для новых технологических цепочек. Анализ возможностей локализации производства крупнотоннажных ВРУ.
                   </p>
                   <button class="report-link" type="button" data-i18n="reports.slideCta">Смотреть превью</button>
                 </div>
               </article>
               <article class="carousel-slide">
                 <div class="report-cover" style="--cover-hue: 120">
-                  <span class="report-tag" data-i18n="reports.slide6.tag">Стартапы</span>
-                  <h3 data-i18n="reports.slide6.title">Инвестиции в AI-проекты</h3>
+                  <span class="report-tag" data-i18n="reports.slide6.tag">Арматура</span>
+                  <h3 data-i18n="reports.slide6.title">ЗАПОРНАЯ АРМАТУРА ВЫСОКИХ КЛАССОВ</h3>
                   <p data-i18n="reports.slide6.text">
-                    Динамика сделок, перспективные направления и карта венчурных фондов.
+                    Риски и возможности импортозамещения в сегменте smart valves. Обзор объемов рынка с учетом данных о реализации инвестпроектов. Анализ потребности в средствах производства и сертификации для российских производителей.
                   </p>
                   <button class="report-link" type="button" data-i18n="reports.slideCta">Смотреть превью</button>
                 </div>
@@ -1083,30 +1085,30 @@
           "reports.description":
             "Выберите релевантные обзоры рынка и аналитические материалы — мы подготовим персонифицированное решение.",
           "reports.slideCta": "Смотреть превью",
-          "reports.slide1.tag": "Финансы",
-          "reports.slide1.title": "Обзор банковского сектора Q2",
+          "reports.slide1.tag": "Компрессоры",
+          "reports.slide1.title": "РЫНОК КОМПРЕССОРНОГО ОБОРУДОВАНИЯ",
           "reports.slide1.text":
-            "Ключевые метрики и прогноз развития цифровых сервисов до конца года.",
-          "reports.slide2.tag": "Телеком",
-          "reports.slide2.title": "Рынок 5G-решений для бизнеса",
+            "Анализ инвестиционных программ ВИНКов и стратегий ключевых игроков. Глубокий разбор перспективных сегментов: от винтовых компрессоров для КИПиА до турбокомпрессоров большой мощности для МГ и НПЗ. Прогноз спроса до 2030 года.",
+          "reports.slide2.tag": "Теплообмен",
+          "reports.slide2.title": "ТЕПЛООБМЕННОЕ ОБОРУДОВАНИЕ ДЛЯ НЕФТЕХИМИИ",
           "reports.slide2.text":
-            "Сценарии внедрения и оценка готовности инфраструктуры крупных городов.",
-          "reports.slide3.tag": "Ритейл",
-          "reports.slide3.title": "Портрет цифрового покупателя 2024",
+            "Сценарии внедрения и оценка влияния новых экологических стандартов. Анализ трендов в материалах (дуплекс, хастелой) и конструкциях (паяные, спиральные). Ключевые инвестпроекты, формирующие спрос, и требования заказчиков.",
+          "reports.slide3.tag": "Водоподготовка",
+          "reports.slide3.title": "ТЕХНОЛОГИИ ВОДОПОДГОТОВКИ ДЛЯ ПРОМЫШЛЕННОСТИ",
           "reports.slide3.text":
-            "Поведение клиентов, гибридные каналы продаж и ключевые показатели лояльности.",
-          "reports.slide4.tag": "Промышленность",
-          "reports.slide4.title": "Автоматизация производственных цепочек",
+            "Экономика перехода на замкнутый цикл водопользования. Сравнительный анализ технологий (ультрафильтрация, обратный осмос, озонирование). Обзор рынка, драйверы спроса со стороны ТЭК, металлургии и ХВП.",
+          "reports.slide4.tag": "Энергетика",
+          "reports.slide4.title": "СИСТЕМЫ АВАРИЙНОГО ПИТАНИЯ (БАВР) ДЛЯ КРИТИЧЕСКОЙ ИНФРАСТРУКТУРЫ",
           "reports.slide4.text":
-            "Кейсы внедрения IIoT и оценка влияния на операционную эффективность предприятий.",
-          "reports.slide5.tag": "Госсектор",
-          "reports.slide5.title": "Цифровая трансформация услуг",
+            "Влияние новых требований Минпромторга на емкость рынка. Анализ объемов рынка с учетом модернизации генерирующих мощностей и данных о капитальном ремонте. Профили основных игроков и их производственные компетенции.",
+          "reports.slide5.tag": "Газоразделение",
+          "reports.slide5.title": "ВОЗДУХОРАЗДЕЛИТЕЛЬНЫЕ УСТАНОВКИ (ВРУ)",
           "reports.slide5.text":
-            "Анализ пользовательских сценариев и практики внедрения суперприложений.",
-          "reports.slide6.tag": "Стартапы",
-          "reports.slide6.title": "Инвестиции в AI-проекты",
+            "Перспективы роста в связи с развитием ВИЭ и водородной энергетики. Оценка потребности в кислороде, азоте и аргоне для новых технологических цепочек. Анализ возможностей локализации производства крупнотоннажных ВРУ.",
+          "reports.slide6.tag": "Арматура",
+          "reports.slide6.title": "ЗАПОРНАЯ АРМАТУРА ВЫСОКИХ КЛАССОВ",
           "reports.slide6.text":
-            "Динамика сделок, перспективные направления и карта венчурных фондов.",
+            "Риски и возможности импортозамещения в сегменте smart valves. Обзор объемов рынка с учетом данных о реализации инвестпроектов. Анализ потребности в средствах производства и сертификации для российских производителей.",
           "metrics.eyebrow": "Профессиональная помощь на каждом этапе.",
           "metrics.title": "Профессиональная помощь на каждом этапе.",
           "metrics.subtitle":
@@ -1190,30 +1192,30 @@
           "reports.description":
             "Select the most relevant market overviews and analytical materials — we've curated highlights across key industries.",
           "reports.slideCta": "View preview",
-          "reports.slide1.tag": "Finance",
-          "reports.slide1.title": "Banking sector review Q2",
+          "reports.slide1.tag": "Compressors",
+          "reports.slide1.title": "Compressor equipment market",
           "reports.slide1.text":
-            "Key metrics and a forecast for digital services adoption through year-end.",
-          "reports.slide2.tag": "Telecom",
-          "reports.slide2.title": "5G solutions for business",
+            "Analysis of investment programs of major oil and gas holdings and strategies of leading OEMs. Deep dive into promising segments from instrumentation screw compressors to large-scale turbocompressors for trunk pipelines and refineries. Demand outlook through 2030.",
+          "reports.slide2.tag": "Heat exchange",
+          "reports.slide2.title": "Heat exchangers for petrochemicals",
           "reports.slide2.text":
-            "Implementation scenarios and an assessment of infrastructure readiness in major cities.",
-          "reports.slide3.tag": "Retail",
-          "reports.slide3.title": "Portrait of the digital shopper 2024",
+            "Deployment scenarios and assessment of the impact of new environmental standards. Trends in materials (duplex, Hastelloy) and designs (brazed, spiral). Key investment projects driving demand and evolving customer requirements.",
+          "reports.slide3.tag": "Water treatment",
+          "reports.slide3.title": "Industrial water treatment technologies",
           "reports.slide3.text":
-            "Customer behaviour, hybrid sales channels, and core loyalty indicators.",
-          "reports.slide4.tag": "Industry",
-          "reports.slide4.title": "Automating production value chains",
+            "Economics of transitioning to closed-loop water use. Comparative analysis of ultrafiltration, reverse osmosis, and ozonation. Market overview with demand drivers from the fuel and energy sector, metallurgy, and food processing.",
+          "reports.slide4.tag": "Backup power",
+          "reports.slide4.title": "Emergency power systems for critical infrastructure",
           "reports.slide4.text":
-            "IIoT deployment cases and the impact on operational efficiency.",
-          "reports.slide5.tag": "Public sector",
-          "reports.slide5.title": "Digital transformation of services",
+            "Impact of new Ministry of Industry requirements on market capacity. Market sizing considering generation upgrades and major overhaul data. Profiles of key vendors and their manufacturing capabilities.",
+          "reports.slide5.tag": "Air separation",
+          "reports.slide5.title": "Air separation units",
           "reports.slide5.text":
-            "Analysis of user scenarios and proven practices for launching super apps.",
-          "reports.slide6.tag": "Startups",
-          "reports.slide6.title": "Investments in AI projects",
+            "Growth prospects driven by renewables and hydrogen energy. Assessment of oxygen, nitrogen, and argon needs for new value chains. Analysis of localization potential for large-capacity ASUs.",
+          "reports.slide6.tag": "High-class valves",
+          "reports.slide6.title": "High-class shut-off valves",
           "reports.slide6.text":
-            "Deal dynamics, promising focus areas, and a map of venture funds.",
+            "Risks and opportunities of import substitution in the smart valves segment. Market sizing based on investment project execution. Analysis of production tooling and certification needs for domestic manufacturers.",
           "metrics.eyebrow": "Professional support at every stage.",
           "metrics.title": "Professional support at every stage.",
           "metrics.subtitle":
