@@ -589,55 +589,53 @@
       .cta-banner {
         position: relative;
         margin-top: clamp(64px, 10vw, 128px);
-        overflow: hidden;
-        color: #ffffff;
-        isolation: isolate;
       }
 
-      .cta-banner > img {
-        position: absolute;
-        inset: 0;
+      .cta-banner__visual {
+        position: relative;
+      }
+
+      .cta-banner__visual img {
         width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: -2;
-      }
-
-      .cta-banner::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          120deg,
-          rgba(12, 26, 42, 0.75) 0%,
-          rgba(12, 26, 42, 0.55) 55%,
-          rgba(12, 26, 42, 0.35) 100%
-        );
-        z-index: -1;
+        height: auto;
+        display: block;
       }
 
       .cta-banner__content {
-        position: relative;
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         padding: clamp(80px, 12vw, 160px) 0;
       }
 
       .cta-section {
         text-align: center;
         display: grid;
-        gap: 24px;
+        gap: clamp(20px, 4vw, 28px);
         justify-items: center;
+        width: min(100%, 600px);
+        margin: 0 auto;
       }
 
-      .cta-section h2 {
+      .cta-section .cta-title {
         margin: 0;
-        font-size: clamp(2rem, 2vw + 1rem, 2.6rem);
+        display: grid;
+        gap: clamp(2px, 1vw, 6px);
+        font-size: clamp(1.75rem, 1.1rem + 2.3vw, 2.35rem);
+        color: #000000;
+      }
+
+      .cta-section .cta-title span {
+        display: block;
       }
 
       .cta-section p {
-        max-width: 560px;
+        max-width: min(560px, 100%);
         margin: 0;
-        color: rgba(255, 255, 255, 0.82);
-        font-size: 1.05rem;
+        color: #000000;
+        font-size: clamp(1rem, 0.95rem + 0.35vw, 1.1rem);
       }
 
       footer {
@@ -1039,13 +1037,18 @@
 
 
       <section class="cta-banner" id="contact">
-        <img src="assets/gajets.png" alt="" />
-        <div class="cta-banner__content">
-          <div class="container">
-            <div class="cta-section">
-              <h2 data-i18n="cta.title">Сделайте следующий шаг.</h2>
-              <p data-i18n="cta.text">Обратитесь к эксперту DataBook — мы подготовим персонализированное решение для вашего бизнеса.</p>
-              <button class="btn btn-primary" data-i18n="cta.cta">Связаться с экспертом</button>
+        <div class="container">
+          <div class="cta-banner__visual">
+            <img src="assets/gajets.png" alt="" />
+            <div class="cta-banner__content">
+              <div class="cta-section">
+                <h2 class="cta-title">
+                  <span data-i18n="cta.title.line1">Сделайте следующий</span>
+                  <span data-i18n="cta.title.line2">шаг.</span>
+                </h2>
+                <p data-i18n="cta.text">Обратитесь к эксперту DataBook — мы подготовим персонализированное решение для вашего бизнеса.</p>
+                <button class="btn btn-primary" data-i18n="cta.cta">Связаться с экспертом</button>
+              </div>
             </div>
           </div>
         </div>
@@ -1161,7 +1164,8 @@
           "stories.story5.title": "Семинары. Обучающие программы",
           "stories.story5.text":
             "Знания и навыки, нетворкинг и форсайты",
-          "cta.title": "Сделайте следующий шаг.",
+          "cta.title.line1": "Сделайте следующий",
+          "cta.title.line2": "шаг.",
           "cta.text":
             "Обратитесь к эксперту DataBook — мы подготовим персонализированное решение для вашего бизнеса.",
           "cta.cta": "Связаться с экспертом",
@@ -1268,7 +1272,8 @@
           "stories.story5.title": "Workshops and learning programmes",
           "stories.story5.text":
             "Knowledge and skills that deliver a competitive edge.",
-          "cta.title": "Take the next step.",
+          "cta.title.line1": "Take the next",
+          "cta.title.line2": "step.",
           "cta.text":
             "Reach out to a DataBook expert — we'll craft a tailored solution for your business.",
           "cta.cta": "Contact an expert",
