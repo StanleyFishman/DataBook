@@ -587,38 +587,15 @@
       }
 
       .cta-banner {
-        position: relative;
         margin-top: clamp(64px, 10vw, 128px);
-        overflow: hidden;
-        color: #ffffff;
-        isolation: isolate;
-      }
-
-      .cta-banner > img {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: -2;
-      }
-
-      .cta-banner::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          120deg,
-          rgba(12, 26, 42, 0.75) 0%,
-          rgba(12, 26, 42, 0.55) 55%,
-          rgba(12, 26, 42, 0.35) 100%
-        );
-        z-index: -1;
+        padding: 0 clamp(24px, 6vw, 72px);
       }
 
       .cta-banner__content {
-        position: relative;
-        padding: clamp(80px, 12vw, 160px) 0;
+        background: #ffffff;
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-soft);
+        padding: clamp(64px, 10vw, 120px) clamp(24px, 6vw, 96px);
       }
 
       .cta-section {
@@ -636,7 +613,7 @@
       .cta-section p {
         max-width: 560px;
         margin: 0;
-        color: rgba(255, 255, 255, 0.82);
+        color: var(--text-muted);
         font-size: 1.05rem;
       }
 
@@ -1039,7 +1016,6 @@
 
 
       <section class="cta-banner" id="contact">
-        <img src="assets/gajets.png" alt="" />
         <div class="cta-banner__content">
           <div class="container">
             <div class="cta-section">
