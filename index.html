@@ -192,6 +192,117 @@
         color: var(--text-main);
       }
 
+      .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      .contact-modal[hidden] {
+        display: none;
+      }
+
+      .contact-modal {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: clamp(24px, 6vw, 48px);
+        background: rgba(12, 26, 42, 0.55);
+        backdrop-filter: blur(8px);
+        z-index: 1000;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease;
+      }
+
+      .contact-modal.is-visible {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .contact-modal__dialog {
+        position: relative;
+        width: min(520px, 100%);
+        padding: clamp(24px, 4vw, 40px);
+        border-radius: var(--radius-md);
+        background: #ffffff;
+        box-shadow: 0 32px 64px rgba(12, 26, 42, 0.25);
+        text-align: center;
+        display: grid;
+        gap: 16px;
+      }
+
+      .contact-modal__title {
+        margin: 0;
+        font-size: clamp(1.4rem, 1.2rem + 0.5vw, 1.8rem);
+      }
+
+      .contact-modal__subtitle {
+        margin: 0;
+        color: var(--text-muted);
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+
+      .contact-modal__phone {
+        margin: 0;
+        font-weight: 600;
+        font-size: 1.05rem;
+      }
+
+      .contact-modal__phone a {
+        color: var(--accent);
+      }
+
+      .contact-modal__qr-hint {
+        margin: 0;
+        color: var(--text-muted);
+        font-size: 0.95rem;
+      }
+
+      .contact-modal__qr {
+        margin: 0 auto;
+        width: min(220px, 60%);
+      }
+
+      .contact-modal__close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: none;
+        background: var(--bg-muted);
+        color: var(--text-main);
+        font-size: 1.4rem;
+        font-weight: 500;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s ease, transform 0.2s ease;
+      }
+
+      .contact-modal__close:hover,
+      .contact-modal__close:focus-visible {
+        outline: none;
+        background: rgba(15, 98, 254, 0.12);
+        transform: translateY(-1px);
+      }
+
+      body.has-modal {
+        overflow: hidden;
+      }
+
       .hero-media {
         position: relative;
         min-height: 420px;
@@ -1035,6 +1146,23 @@
       </div>
     </footer>
 
+    <div class="contact-modal" id="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title" aria-describedby="contact-modal-description" hidden>
+      <div class="contact-modal__dialog">
+        <button type="button" class="contact-modal__close" data-modal-close>
+          <span aria-hidden="true">&times;</span>
+          <span class="visually-hidden" data-i18n="modal.close">Закрыть окно</span>
+        </button>
+        <h2 class="contact-modal__title" id="contact-modal-title" data-i18n="modal.title">Свяжитесь с нами</h2>
+        <p class="contact-modal__subtitle" id="contact-modal-description" data-i18n="modal.subtitle">Мы на связи каждый день.</p>
+        <p class="contact-modal__phone">
+          <span data-i18n="modal.phoneLabel">Телефон:</span>
+          <a href="tel:+79177755938">8 (917) 77-55-938</a>
+        </p>
+        <img class="contact-modal__qr" src="assets/contact-qr.svg" alt="QR-код для связи через WhatsApp" loading="lazy" />
+        <p class="contact-modal__qr-hint" data-i18n="modal.qrHint">Отсканируйте QR-код, чтобы написать нам в WhatsApp.</p>
+      </div>
+    </div>
+
     <script>
       const translations = {
         ru: {
@@ -1141,6 +1269,11 @@
           "cta.text":
             "Обратитесь к эксперту DataBook — мы подготовим персонализированное решение для вашего бизнеса.",
           "cta.cta": "Связаться с экспертом",
+          "modal.title": "Свяжитесь с нами",
+          "modal.subtitle": "Мы на связи каждый день.",
+          "modal.phoneLabel": "Телефон:",
+          "modal.qrHint": "Отсканируйте QR-код, чтобы написать нам в WhatsApp.",
+          "modal.close": "Закрыть окно",
           "footer.brand": "DataBook",
           "footer.copyright": "© 2025 DataBook. Все права защищены."
         },
@@ -1248,6 +1381,11 @@
           "cta.text":
             "Reach out to a DataBook expert — we'll craft a tailored solution for your business.",
           "cta.cta": "Contact an expert",
+          "modal.title": "Get in touch",
+          "modal.subtitle": "We're available every day.",
+          "modal.phoneLabel": "Phone:",
+          "modal.qrHint": "Scan the QR code to message us on WhatsApp.",
+          "modal.close": "Close window",
           "footer.brand": "DataBook",
           "footer.copyright": "© 2025 DataBook. All rights reserved."
         }
@@ -1278,6 +1416,91 @@
 
       const savedLang = localStorage.getItem("databook-lang") || "ru";
       setLanguage(savedLang);
+
+      const contactModal = document.getElementById("contact-modal");
+      let lastFocusedElement = null;
+
+      const openContactModal = () => {
+        if (!contactModal || !contactModal.hasAttribute("hidden")) {
+          return;
+        }
+        lastFocusedElement =
+          document.activeElement instanceof HTMLElement ? document.activeElement : null;
+        contactModal.removeAttribute("hidden");
+        window.requestAnimationFrame(() => {
+          contactModal.classList.add("is-visible");
+        });
+        document.body.classList.add("has-modal");
+        const closeButton = contactModal.querySelector("[data-modal-close]");
+        if (closeButton instanceof HTMLElement) {
+          closeButton.focus();
+        }
+      };
+
+      const closeContactModal = () => {
+        if (!contactModal || contactModal.hasAttribute("hidden")) {
+          return;
+        }
+        contactModal.classList.remove("is-visible");
+        const fallbackId = window.setTimeout(() => {
+          if (contactModal && !contactModal.hasAttribute("hidden")) {
+            contactModal.setAttribute("hidden", "");
+            contactModal.removeEventListener("transitionend", onTransitionEnd);
+          }
+        }, 320);
+        function onTransitionEnd(event) {
+          if (event.target !== contactModal) {
+            return;
+          }
+          window.clearTimeout(fallbackId);
+          contactModal.setAttribute("hidden", "");
+          contactModal.removeEventListener("transitionend", onTransitionEnd);
+        }
+        contactModal.addEventListener("transitionend", onTransitionEnd);
+        document.body.classList.remove("has-modal");
+        if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+          lastFocusedElement.focus();
+        }
+        lastFocusedElement = null;
+      };
+
+      if (contactModal) {
+        contactModal.querySelectorAll("[data-modal-close]").forEach((btn) => {
+          btn.addEventListener("click", (event) => {
+            event.stopPropagation();
+            closeContactModal();
+          });
+        });
+
+        contactModal.addEventListener("click", (event) => {
+          if (event.target === contactModal) {
+            closeContactModal();
+          }
+        });
+      }
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeContactModal();
+        }
+      });
+
+      document.addEventListener("click", (event) => {
+        const target = event.target;
+        if (!(target instanceof Element)) {
+          return;
+        }
+        if (!target.matches("button")) {
+          return;
+        }
+        if (target.hasAttribute("data-modal-close")) {
+          return;
+        }
+        if (contactModal && contactModal.contains(target)) {
+          return;
+        }
+        openContactModal();
+      });
 
       const initRevealAnimations = () => {
         const REVEAL_SELECTORS = [
