@@ -592,7 +592,11 @@
         color: #ffffff;
       }
 
-      .cta-banner > img {
+      .cta-banner__visual {
+        position: relative;
+      }
+
+      .cta-banner__visual img {
         width: 100%;
         height: auto;
         display: block;
@@ -1025,13 +1029,15 @@
 
 
       <section class="cta-banner" id="contact">
-        <img src="assets/gajets.png" alt="" />
-        <div class="cta-banner__content">
-          <div class="container">
-            <div class="cta-section">
-              <h2 data-i18n="cta.title">Сделайте следующий шаг.</h2>
-              <p data-i18n="cta.text">Обратитесь к эксперту DataBook — мы подготовим персонализированное решение для вашего бизнеса.</p>
-              <button class="btn btn-primary" data-i18n="cta.cta">Связаться с экспертом</button>
+        <div class="container">
+          <div class="cta-banner__visual">
+            <img src="assets/gajets.png" alt="" />
+            <div class="cta-banner__content">
+              <div class="cta-section">
+                <h2 data-i18n="cta.title">Сделайте следующий шаг.</h2>
+                <p data-i18n="cta.text">Обратитесь к эксперту DataBook — мы подготовим персонализированное решение для вашего бизнеса.</p>
+                <button class="btn btn-primary" data-i18n="cta.cta">Связаться с экспертом</button>
+              </div>
             </div>
           </div>
         </div>
