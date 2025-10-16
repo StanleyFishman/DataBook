@@ -1536,12 +1536,25 @@
           event.preventDefault();
           event.stopPropagation();
 
-          const cover = button.closest(".report-cover");
-          if (!cover) {
+          const block = button.closest(".reports-carousel");
+          if (!block) {
             return;
           }
 
-          cover.classList.toggle("is-expanded");
+          const covers = Array.from(
+            block.querySelectorAll(".report-cover")
+          );
+          if (!covers.length) {
+            return;
+          }
+
+          const shouldExpand = covers.some(
+            (cover) => !cover.classList.contains("is-expanded")
+          );
+
+          covers.forEach((cover) => {
+            cover.classList.toggle("is-expanded", shouldExpand);
+          });
           syncReportButtonsState();
         });
       });
