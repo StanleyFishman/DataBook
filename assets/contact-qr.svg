@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="200" height="200" rx="16" fill="#fff"/>
+  <rect x="16" y="16" width="56" height="56" fill="#000" rx="8"/>
+  <rect x="32" y="32" width="24" height="24" fill="#fff"/>
+  <rect x="40" y="40" width="8" height="8" fill="#000"/>
+  <rect x="128" y="16" width="56" height="56" fill="#000" rx="8"/>
+  <rect x="144" y="32" width="24" height="24" fill="#fff"/>
+  <rect x="152" y="40" width="8" height="8" fill="#000"/>
+  <rect x="16" y="128" width="56" height="56" fill="#000" rx="8"/>
+  <rect x="32" y="144" width="24" height="24" fill="#fff"/>
+  <rect x="40" y="152" width="8" height="8" fill="#000"/>
+  <rect x="80" y="16" width="16" height="16" fill="#000"/>
+  <rect x="104" y="24" width="24" height="24" fill="#000"/>
+  <rect x="88" y="48" width="12" height="12" fill="#000"/>
+  <rect x="120" y="64" width="8" height="8" fill="#000"/>
+  <rect x="96" y="72" width="16" height="16" fill="#000"/>
+  <rect x="120" y="96" width="12" height="12" fill="#000"/>
+  <rect x="88" y="104" width="8" height="8" fill="#000"/>
+  <rect x="112" y="120" width="16" height="16" fill="#000"/>
+  <rect x="88" y="136" width="12" height="12" fill="#000"/>
+  <rect x="120" y="144" width="16" height="16" fill="#000"/>
+  <rect x="152" y="96" width="12" height="12" fill="#000"/>
+  <rect x="168" y="112" width="8" height="8" fill="#000"/>
+  <rect x="144" y="128" width="12" height="12" fill="#000"/>
+  <rect x="160" y="144" width="12" height="12" fill="#000"/>
+  <rect x="128" y="168" width="16" height="16" fill="#000"/>
+  <rect x="152" y="176" width="8" height="8" fill="#000"/>
+  <rect x="96" y="160" width="12" height="12" fill="#000"/>
+  <rect x="72" y="176" width="12" height="12" fill="#000"/>
+  <rect x="48" y="104" width="12" height="12" fill="#000"/>
+  <rect x="64" y="88" width="8" height="8" fill="#000"/>
+  <rect x="32" y="96" width="8" height="8" fill="#000"/>
+  <rect x="48" y="72" width="8" height="8" fill="#000"/>
+  <rect x="176" y="72" width="8" height="8" fill="#000"/>
+  <rect x="176" y="32" width="8" height="8" fill="#000"/>
+  <rect x="104" y="176" width="8" height="8" fill="#000"/>
+  <circle cx="100" cy="100" r="40" fill="#25d366"/>
+  <path fill="#fff" d="M100 68a32 32 0 0 0-28.8 46.88l-4.32 15.84 16.1-4.23A32 32 0 1 0 100 68zm0 8a24 24 0 1 1-11.53 45.08l-1.45-.74-9.52 2.5 2.55-9.36-.75-1.46A24 24 0 0 1 100 76zm-9.58 11.35c.54-.01 1.07.16 1.52.5 2.88 2.13 4.91 5.18 5.66 8.61.07.26.1.54.06.81a2.4 2.4 0 0 1-.85 1.5l-2.32 1.94a1.2 1.2 0 0 0-.4 1.18c.55 2.04 2.14 4.47 4 6.34 1.86 1.86 4.29 3.45 6.33 4 .43.11.88 0 1.2-.32l2.32-2.32c.34-.33.78-.52 1.25-.5 1.1.06 2.19.2 3.27.4 1.32.32 2.08 1.84 2.56 2.96.23.53.13 1.14-.24 1.58l-3.37 4.1c-.5.6-1.23.94-2 .94-1.28 0-2.53-.23-3.7-.68-3.32-1.14-6.36-3.02-8.9-5.56-2.54-2.54-4.42-5.58-5.56-8.9-.45-1.17-.68-2.42-.68-3.7 0-.79.34-1.54.94-2.05l4.2-3.52c.37-.3.85-.46 1.33-.45z"/>
+</svg>
