@@ -801,6 +801,14 @@
           display: none;
         }
 
+        .report-cover.is-expanded {
+          gap: clamp(12px, 3vw, 18px);
+        }
+
+        .report-cover.is-expanded p {
+          display: block;
+        }
+
         .hero-heading {
           padding: 0 24px clamp(16px, 12vw, 56px);
         }
@@ -975,7 +983,14 @@
                   <p data-i18n="reports.slide1.text">
                     Анализ инвестиционных программ ВИНКов и стратегий ключевых игроков. Глубокий разбор перспективных сегментов: от винтовых компрессоров для КИПиА до турбокомпрессоров большой мощности для МГ и НПЗ. Прогноз спроса до 2030 года.
                   </p>
-                  <button class="report-link" type="button" data-i18n="reports.slideCta">Смотреть превью</button>
+                  <button
+                    class="report-link"
+                    type="button"
+                    data-i18n="reports.slideCta"
+                    aria-expanded="false"
+                  >
+                    Смотреть превью
+                  </button>
                 </div>
               </article>
               <article class="carousel-slide">
@@ -985,7 +1000,14 @@
                   <p data-i18n="reports.slide2.text">
                     Сценарии внедрения и оценка влияния новых экологических стандартов. Анализ трендов в материалах (дуплекс, хастелой) и конструкциях (паяные, спиральные). Ключевые инвестпроекты, формирующие спрос, и требования заказчиков.
                   </p>
-                  <button class="report-link" type="button" data-i18n="reports.slideCta">Смотреть превью</button>
+                  <button
+                    class="report-link"
+                    type="button"
+                    data-i18n="reports.slideCta"
+                    aria-expanded="false"
+                  >
+                    Смотреть превью
+                  </button>
                 </div>
               </article>
               <article class="carousel-slide">
@@ -995,7 +1017,14 @@
                   <p data-i18n="reports.slide3.text">
                     Экономика перехода на замкнутый цикл водопользования. Сравнительный анализ технологий (ультрафильтрация, обратный осмос, озонирование). Обзор рынка, драйверы спроса со стороны ТЭК, металлургии и ХВП.
                   </p>
-                  <button class="report-link" type="button" data-i18n="reports.slideCta">Смотреть превью</button>
+                  <button
+                    class="report-link"
+                    type="button"
+                    data-i18n="reports.slideCta"
+                    aria-expanded="false"
+                  >
+                    Смотреть превью
+                  </button>
                 </div>
               </article>
               <article class="carousel-slide">
@@ -1005,7 +1034,14 @@
                   <p data-i18n="reports.slide4.text">
                     Влияние новых требований Минпромторга на емкость рынка. Анализ объемов рынка с учетом модернизации генерирующих мощностей и данных о капитальном ремонте. Профили основных игроков и их производственные компетенции.
                   </p>
-                  <button class="report-link" type="button" data-i18n="reports.slideCta">Смотреть превью</button>
+                  <button
+                    class="report-link"
+                    type="button"
+                    data-i18n="reports.slideCta"
+                    aria-expanded="false"
+                  >
+                    Смотреть превью
+                  </button>
                 </div>
               </article>
               <article class="carousel-slide">
@@ -1015,7 +1051,14 @@
                   <p data-i18n="reports.slide5.text">
                     Перспективы роста в связи с развитием ВИЭ и водородной энергетики. Оценка потребности в кислороде, азоте и аргоне для новых технологических цепочек. Анализ возможностей локализации производства крупнотоннажных ВРУ.
                   </p>
-                  <button class="report-link" type="button" data-i18n="reports.slideCta">Смотреть превью</button>
+                  <button
+                    class="report-link"
+                    type="button"
+                    data-i18n="reports.slideCta"
+                    aria-expanded="false"
+                  >
+                    Смотреть превью
+                  </button>
                 </div>
               </article>
               <article class="carousel-slide">
@@ -1025,7 +1068,14 @@
                   <p data-i18n="reports.slide6.text">
                     Риски и возможности импортозамещения в сегменте smart valves. Обзор объемов рынка с учетом данных о реализации инвестпроектов. Анализ потребности в средствах производства и сертификации для российских производителей.
                   </p>
-                  <button class="report-link" type="button" data-i18n="reports.slideCta">Смотреть превью</button>
+                  <button
+                    class="report-link"
+                    type="button"
+                    data-i18n="reports.slideCta"
+                    aria-expanded="false"
+                  >
+                    Смотреть превью
+                  </button>
                 </div>
               </article>
             </div>
@@ -1215,6 +1265,7 @@
           "reports.description":
             "Выберите релевантные обзоры рынка и аналитические материалы — мы подготовим персонифицированное решение.",
           "reports.slideCta": "Смотреть превью",
+          "reports.slideCtaHide": "Скрыть превью",
           "reports.slide1.tag": "Компрессоры",
           "reports.slide1.title": "РЫНОК КОМПРЕССОРНОГО ОБОРУДОВАНИЯ",
           "reports.slide1.text":
@@ -1327,6 +1378,7 @@
           "reports.description":
             "Select the most relevant market overviews and analytical materials — we've curated highlights across key industries.",
           "reports.slideCta": "View preview",
+          "reports.slideCtaHide": "Hide preview",
           "reports.slide1.tag": "Compressors",
           "reports.slide1.title": "Compressor equipment market",
           "reports.slide1.text":
@@ -1419,6 +1471,40 @@
 
       const toggleButtons = document.querySelectorAll(".language-toggle button");
       const translatable = document.querySelectorAll("[data-i18n]");
+      const REPORT_CTA_SHOW_KEY = "reports.slideCta";
+      const REPORT_CTA_HIDE_KEY = "reports.slideCtaHide";
+      const reportButtons = Array.from(
+        document.querySelectorAll(".report-cover .report-link")
+      );
+      const mobileMediaQuery = window.matchMedia("(max-width: 850px)");
+
+      function syncReportButtonsState() {
+        const lang = document.documentElement.lang || "ru";
+        const dict = translations[lang] || {};
+        const isMobile = mobileMediaQuery.matches;
+
+        reportButtons.forEach((button) => {
+          if (!(button instanceof HTMLElement)) {
+            return;
+          }
+
+          const cover = button.closest(".report-cover");
+          if (!cover) {
+            return;
+          }
+
+          if (!isMobile) {
+            cover.classList.remove("is-expanded");
+          }
+
+          const expanded = isMobile && cover.classList.contains("is-expanded");
+          const key = expanded ? REPORT_CTA_HIDE_KEY : REPORT_CTA_SHOW_KEY;
+          if (dict[key]) {
+            button.textContent = dict[key];
+          }
+          button.setAttribute("aria-expanded", expanded ? "true" : "false");
+        });
+      }
 
       function setLanguage(lang) {
         const dict = translations[lang];
@@ -1434,11 +1520,37 @@
           btn.classList.toggle("active", btn.dataset.lang === lang);
         });
         localStorage.setItem("databook-lang", lang);
+        syncReportButtonsState();
       }
 
       toggleButtons.forEach((btn) => {
         btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
       });
+
+      reportButtons.forEach((button) => {
+        button.addEventListener("click", (event) => {
+          if (!mobileMediaQuery.matches) {
+            return;
+          }
+
+          event.preventDefault();
+          event.stopPropagation();
+
+          const cover = button.closest(".report-cover");
+          if (!cover) {
+            return;
+          }
+
+          cover.classList.toggle("is-expanded");
+          syncReportButtonsState();
+        });
+      });
+
+      if (typeof mobileMediaQuery.addEventListener === "function") {
+        mobileMediaQuery.addEventListener("change", syncReportButtonsState);
+      } else if (typeof mobileMediaQuery.addListener === "function") {
+        mobileMediaQuery.addListener(syncReportButtonsState);
+      }
 
       const savedLang = localStorage.getItem("databook-lang") || "ru";
       setLanguage(savedLang);
@@ -1523,6 +1635,9 @@
           return;
         }
         if (contactModal && contactModal.contains(target)) {
+          return;
+        }
+        if (target.closest(".report-cover") && mobileMediaQuery.matches) {
           return;
         }
         openContactModal();
