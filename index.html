@@ -149,10 +149,16 @@
       .hero-heading h1 {
         margin: 0;
         color: #ffffff;
-        font-size: clamp(1rem, 0.6rem + 2.4vw, 3.4rem);
+        font-size: clamp(1.2rem, calc(7.76vw - 10.28px), 2.2667rem);
         line-height: 1.05;
         text-shadow: 0 12px 28px rgba(12, 26, 42, 0.45);
         white-space: pre-line;
+      }
+
+      @media (min-width: 600px) {
+        .hero-heading h1 {
+          font-size: clamp(2.2667rem, calc(3.022vw + 18.13px), 3.4rem);
+        }
       }
 
       .hero-description {
